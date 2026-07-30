@@ -97,8 +97,8 @@ header.nav.scrolled::before{opacity:1;border-bottom:1.5px solid var(--border)}
 .nav-inner{position:relative;display:flex;align-items:center;justify-content:space-between;gap:1rem}
 .brand{display:flex;align-items:center;gap:.7rem;min-width:0}
 .brand img{width:46px;height:46px;flex:none;filter:drop-shadow(0 4px 10px rgba(90,68,54,.2))}
-.brand b{font-family:"Fraunces",serif;font-size:1.22rem;letter-spacing:.02em;color:var(--tinta);font-weight:900}
-.brand span{display:block;font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-top:-2px;white-space:nowrap}
+.brand b{font-family:"Fraunces",serif;font-size:1.22rem;letter-spacing:.02em;color:var(--tinta);font-weight:900;display:block;line-height:1.1}
+.brand span span{display:block;font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-top:-1px;white-space:nowrap}
 nav.links{display:flex;align-items:center;gap:.1rem}
 nav.links a{position:relative;font-weight:700;font-size:.94rem;color:var(--tinta);padding:.5rem .85rem;border-radius:999px;transition:.25s var(--ease);white-space:nowrap}
 nav.links a:hover{color:var(--acento);background:rgba(176,88,63,.08)}
@@ -344,6 +344,9 @@ body.gsap-on .reveal{transform:none}
   .pgrid,.pgrid.c3{grid-template-columns:repeat(2,1fr)}
   .foot-grid{grid-template-columns:1fr 1fr}
   .stats-band .grid4{grid-template-columns:repeat(2,1fr);gap:1.8rem}
+  /* el adorno no debe pisar el texto */
+  .page-hero .deco{transform:scale(.76)}
+  .page-hero p.lead{max-width:44ch}
 }
 
 @media (max-width:900px){
@@ -366,7 +369,8 @@ body.gsap-on .reveal{transform:none}
   .foot-grid{grid-template-columns:1fr;gap:1.8rem}
   .sec-head{margin-bottom:2.2rem}
   .page-hero{padding:calc(var(--navh) + 34px) 0 44px}
-  .page-hero .deco{opacity:.5;transform:scale(.8)}
+  .page-hero .deco{display:none}   /* en móvil estorban al texto */
+  .page-hero p.lead{max-width:none}
   .band::before,.band::after{display:none}
   .wave{height:36px}
 }
@@ -383,7 +387,7 @@ body.gsap-on .reveal{transform:none}
   .btn{width:100%;justify-content:center}
   .band .btn,.qz-result .btn{width:auto}
   #backtop{width:46px;height:46px;right:.9rem;bottom:.9rem}
-  .brand span{display:none}
+  .brand span span{display:none}   /* oculta solo el subtítulo, no "PASA" */
   .marquee span{font-size:.9rem;gap:1.8rem}
   .marquee .track{gap:1.8rem}
 }

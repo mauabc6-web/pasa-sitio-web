@@ -58,57 +58,61 @@
   /* ============================================================
      ANIMACIONES
      ============================================================ */
+  /* --- Reveals: siempre por IntersectionObserver (no depende de GSAP) --- */
+  const reveals = document.querySelectorAll('.reveal');
+  if (reduce || !('IntersectionObserver' in window)) {
+    reveals.forEach(el => el.classList.add('in'));
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: .08, rootMargin: '0px 0px -6% 0px' });
+    reveals.forEach(el => io.observe(el));
+    /* Red de seguridad: nada queda oculto para siempre */
+    setTimeout(() => reveals.forEach(el => el.classList.add('in')), 4000);
+  }
+
   if (hasGSAP) {
     document.body.classList.add('gsap-on');
     gsap.registerPlugin(ScrollTrigger);
-
-    /* Reveals con stagger por sección */
-    document.querySelectorAll('section, .marquee, footer.site').forEach(scope => {
-      const items = scope.querySelectorAll('.reveal');
-      if (!items.length) return;
-      gsap.set(items, { opacity: 0, y: 36 });
-      ScrollTrigger.batch(items, {
-        start: 'top 88%',
-        onEnter: batch => gsap.to(batch, {
-          opacity: 1, y: 0, duration: .8, ease: 'power3.out', stagger: .09, overwrite: true
-        })
-      });
-    });
 
     /* Contadores */
     document.querySelectorAll('[data-count]').forEach(el => {
       const end = parseFloat(el.dataset.count);
       const suffix = el.dataset.suffix || '';
+      const final = end.toLocaleString('es-MX') + suffix;
       const obj = { v: 0 };
       ScrollTrigger.create({
-        trigger: el, start: 'top 90%', once: true,
+        trigger: el, start: 'top 92%', once: true,
         onEnter: () => gsap.to(obj, {
-          v: end, duration: 1.6, ease: 'power2.out',
-          onUpdate: () => { el.textContent = Math.round(obj.v).toLocaleString('es-MX') + suffix; }
+          v: end, duration: 1.5, ease: 'power2.out',
+          onUpdate: () => { el.textContent = Math.round(obj.v).toLocaleString('es-MX') + suffix; },
+          onComplete: () => { el.textContent = final; }
         })
       });
+      /* Red de seguridad: si el tween no corre, muestra la cifra final */
+      setTimeout(() => { if (!el.textContent.trim()) el.textContent = final; }, 4000);
     });
 
-    /* Hero home: solo una entrada sutil, sin loops infinitos */
+    /* Hero: entrada sutil con estado final explícito */
     const heroBottles = document.querySelector('.hero-bottles');
     if (heroBottles) {
-      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-      tl.from('.hero-copy > *', { y: 30, opacity: 0, duration: .7, stagger: .08 })
-        .from(heroBottles, { y: 40, opacity: 0, duration: .8 }, '-=.5')
-        .from('.floater', { opacity: 0, duration: .6, stagger: .08 }, '-=.5');
+      const piezas = [...document.querySelectorAll('.hero-copy > *'), heroBottles, ...document.querySelectorAll('.floater')];
+      gsap.timeline({ defaults: { ease: 'power3.out' } })
+        .fromTo('.hero-copy > *', { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: .7, stagger: .08 })
+        .fromTo(heroBottles, { y: 34, opacity: 0 }, { y: 0, opacity: 1, duration: .8 }, '-=.5')
+        .fromTo('.floater', { opacity: 0 }, { opacity: 1, duration: .6, stagger: .08 }, '-=.5');
+      /* Red de seguridad: si rAF está pausado (pestaña de fondo) o algo falla,
+         el hero se muestra igual en lugar de quedarse invisible. */
+      setTimeout(() => {
+        piezas.forEach(el => {
+          if (parseFloat(getComputedStyle(el).opacity) < .95) {
+            gsap.set(el, { opacity: 1, y: 0, clearProps: 'transform' });
+          }
+        });
+      }, 2200);
     }
 
   } else {
-    /* Fallback sin GSAP: IntersectionObserver */
-    const reveals = document.querySelectorAll('.reveal');
-    if (reduce || !('IntersectionObserver' in window)) {
-      reveals.forEach(el => el.classList.add('in'));
-    } else {
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-      }, { threshold: .12 });
-      reveals.forEach(el => io.observe(el));
-    }
     document.querySelectorAll('[data-count]').forEach(el => {
       el.textContent = parseFloat(el.dataset.count).toLocaleString('es-MX') + (el.dataset.suffix || '');
     });
