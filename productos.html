@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=15" />
+<link rel="stylesheet" href="styles.css?v=16" />
 <style>
   /* ====== sub-nav sticky de categorías ====== */
   .catnav{position:sticky;top:var(--navh);z-index:80;background:rgba(250,247,240,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1.5px solid var(--border)}
@@ -68,8 +68,6 @@
   .dm-body h3{font-size:1.85rem;margin:.5rem 0 .7rem;line-height:1.12}
   .dm-body .desc{color:var(--muted);font-size:1rem;line-height:1.6;margin:0 0 1.3rem}
   .dm-body h4{font-family:"Karla",sans-serif;font-weight:800;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta);margin:0 0 .6rem}
-  .dm-sizes{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.4rem}
-  .dm-sizes span{font-size:.8rem;font-weight:800;background:var(--crema-2);border:1.5px solid var(--border);padding:.34rem .7rem;border-radius:9px}
   .dm-feats{display:grid;gap:.5rem;margin:0 0 1.5rem}
   .dm-feats li{display:flex;gap:.6rem;align-items:flex-start;font-size:.93rem;color:var(--tinta-2)}
   .dm-feats li::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--arcilla);margin-top:.5rem}
@@ -85,6 +83,23 @@
     .dm-vis{padding:2.4rem 1.2rem 1.2rem}
     .dm-stage img{max-height:220px}
     .dm-body{padding:1.6rem 1.4rem 1.8rem}
+  }
+  /* ====== fichas técnicas ====== */
+  .fichas{background:var(--crema);padding-top:0}
+  .ficha-panel{
+    background:var(--papel);border:1.5px solid var(--border);border-radius:var(--r-lg);
+    padding:clamp(1.6rem,4vw,2.8rem);display:grid;grid-template-columns:1.6fr 1fr;
+    gap:clamp(1.5rem,4vw,3rem);align-items:center;box-shadow:var(--shadow);position:relative;z-index:1;
+  }
+  .ficha-txt h2{font-size:clamp(1.5rem,3vw,2.1rem);margin:.7rem 0 .8rem}
+  .ficha-txt p{color:var(--muted);font-size:1rem;margin:0;max-width:58ch}
+  .ficha-cta{display:flex;flex-direction:column;align-items:center;gap:.9rem;text-align:center}
+  .ficha-cta svg{width:44px;height:44px;fill:none;stroke:var(--acento);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;opacity:.8}
+  .ficha-mail{font-size:.85rem;color:var(--muted);font-weight:700;word-break:break-all}
+  @media (max-width:780px){
+    .ficha-panel{grid-template-columns:1fr;text-align:center}
+    .ficha-txt p{margin-inline:auto}
+    .ficha-txt .eyebrow{justify-content:center}
   }
   @media (max-width:600px){
     .cat-head .tally{display:none}
@@ -199,6 +214,26 @@
   </div>
 </section>
 
+<!-- ===== FICHAS TÉCNICAS ===== -->
+<section class="fichas">
+  <div class="wrap">
+    <div class="ficha-panel reveal">
+      <div class="ficha-txt">
+        <span class="eyebrow">Información técnica</span>
+        <h2>¿Necesitas las <span class="gtext">fichas técnicas</span>?</h2>
+        <p>Compartimos las especificaciones de cada producto: ingredientes, tabla nutrimental,
+           presentaciones, códigos de barras, vida de anaquel y certificaciones. Escríbenos
+           indicando qué productos te interesan y te las enviamos.</p>
+      </div>
+      <div class="ficha-cta">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8M10 9H8"/></svg>
+        <a class="btn" href="mailto:contactanos@pasa.com.mx?subject=Solicitud%20de%20fichas%20t%C3%A9cnicas&body=Buen%20d%C3%ADa%2C%20me%20interesa%20recibir%20las%20fichas%20t%C3%A9cnicas%20de%20los%20siguientes%20productos%3A%0A%0A-%20%0A%0AEmpresa%3A%0ANombre%3A%0ATel%C3%A9fono%3A">Solicitar fichas técnicas</a>
+        <span class="ficha-mail">contactanos@pasa.com.mx</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== CTA ===== -->
 <section class="band">
   <div class="wrap">
@@ -255,8 +290,6 @@
       <span class="k" id="dmCat"></span>
       <h3 id="dmTitle"></h3>
       <p class="desc" id="dmDesc"></p>
-      <h4>Presentaciones</h4>
-      <div class="dm-sizes" id="dmSizes"></div>
       <h4>Ideal para</h4>
       <ul class="dm-feats" id="dmFeats"></ul>
       <div class="dm-nav">
@@ -269,7 +302,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="main.js?v=15"></script>
+<script src="main.js?v=16"></script>
 <script>
 /* =========================================================
    CATÁLOGO PASA — datos reales del sitio oficial
@@ -419,7 +452,7 @@ const CATALOGO = [
   const dov = document.getElementById('dov'), stage = document.getElementById('dmStage'),
         thumbs = document.getElementById('dmThumbs'), catEl = document.getElementById('dmCat'),
         titleEl = document.getElementById('dmTitle'), descEl = document.getElementById('dmDesc'),
-        sizesEl = document.getElementById('dmSizes'), featsEl = document.getElementById('dmFeats'),
+        featsEl = document.getElementById('dmFeats'),
         prevB = document.getElementById('dmPrev'), nextB = document.getElementById('dmNext');
   let cur = 0, lastFocus = null;
 
@@ -430,7 +463,6 @@ const CATALOGO = [
     catEl.textContent = `${p.chip} · Línea ${String(CATS.indexOf(p.cat)+1).padStart(2,'0')}`;
     titleEl.textContent = p.name;
     descEl.textContent = p.desc;
-    sizesEl.innerHTML = p.sizes.map(s => `<span>${s}</span>`).join('');
     featsEl.innerHTML = p.feats.map(f => `<li>${f}</li>`).join('');
     stage.classList.remove('zoom');
     stage.innerHTML = `<img src="${p.img}" alt="${p.name}" />`;
