@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=9" />
+<link rel="stylesheet" href="styles.css?v=10" />
 <style>
   /* ===== HERO HOME ===== */
   .hero{
@@ -50,13 +50,12 @@
 
   /* ===== recetas teaser ===== */
   .uses{background:var(--crema-2);color:var(--tinta);overflow:hidden;border-top:1.5px solid var(--border)}
-  .uses-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.3rem;position:relative;z-index:1}
+  .uses-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;position:relative;z-index:1}
   /* tarjetas informativas — no son enlaces, solo ilustran */
   .use{position:relative;border-radius:var(--r-lg);overflow:hidden;min-height:320px;display:flex;align-items:flex-end;border:1.5px solid rgba(70,62,48,.1);color:var(--tinta);margin:0}
   .use:nth-child(1){background:linear-gradient(160deg,#F0E3C4 0%, var(--trigo) 100%)}
   .use:nth-child(2){background:linear-gradient(160deg,#E7CBB8 0%, var(--arcilla) 100%)}
   .use:nth-child(3){background:linear-gradient(160deg,#D6DFE1 0%, var(--niebla) 100%)}
-  .use:nth-child(4){background:linear-gradient(160deg,#E5CFCB 0%, var(--rosa-seca) 100%)}
   /* caja explícita (una imagen no se estira con width:auto) +
      object-fit:contain para encajar fotos anchas y altas sin deformar */
   .use img{
@@ -242,10 +241,6 @@
         <img decoding="async" src="assets/scene-carne.png" alt="Corte de carne asada con salsas negras" />
         <figcaption class="cap"><b>Carnes &amp; asados</b><span>Con salsas negras</span></figcaption>
       </figure>
-      <figure class="use">
-        <img decoding="async" src="assets/scene-papas.png" alt="Botana de papas con jugo sazonador" />
-        <figcaption class="cap"><b>Botanas</b><span>El toque perfecto</span></figcaption>
-      </figure>
     </div>
     <div class="uses-more reveal">
       <a class="btn mar" href="recetas.html">Ver nuestras recetas →</a>
@@ -331,7 +326,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="main.js?v=9"></script>
+<script src="main.js?v=10"></script>
 <script>
 /* ================= QUIZ ¿QUÉ SABOR ERES? ================= */
 (function(){
