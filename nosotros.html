@@ -16,36 +16,36 @@
   .story-copy h2{font-size:clamp(2rem,4vw,3rem);margin:1rem 0 1.2rem}
   .story-copy p{color:var(--tinta-2);margin:0 0 1.1rem;font-size:1.06rem}
   .story-visual{position:relative}
-  .story-visual .frame{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-lg);background:linear-gradient(160deg,#33201a,#1a0e0a);transform:rotate(1.5deg)}
+  .story-visual .frame{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-lg);background:linear-gradient(160deg,#FCEDCB,var(--durazno-2));transform:rotate(1.5deg)}
   .story-visual .frame img{width:100%}
-  .story-visual .badge{position:absolute;bottom:-24px;left:-20px;background:var(--papel);border-radius:var(--r);padding:1rem 1.3rem;box-shadow:var(--shadow);display:flex;align-items:center;gap:.9rem;border:2px solid var(--amarillo);transform:rotate(-2deg)}
+  .story-visual .badge{position:absolute;bottom:-24px;left:-20px;background:var(--papel);border-radius:var(--r);padding:1rem 1.3rem;box-shadow:var(--shadow);display:flex;align-items:center;gap:.9rem;border:1.5px solid var(--durazno);transform:rotate(-2deg)}
   .story-visual .badge img{width:54px;height:54px}
   .story-visual .badge b{display:block;font-family:"Fraunces",serif;font-size:1.05rem}
   .story-visual .badge span{font-size:.78rem;color:var(--muted)}
-  .kosher-tag{position:absolute;top:-16px;right:14px;background:var(--amarillo);color:#3A2000;font-weight:900;font-size:.78rem;letter-spacing:.14em;padding:.6rem 1.1rem;border-radius:999px;box-shadow:var(--shadow);text-transform:uppercase;z-index:2;transform:rotate(3deg)}
+  .kosher-tag{position:absolute;top:-16px;right:14px;background:var(--mantequilla);color:#4A3714;font-weight:900;font-size:.78rem;letter-spacing:.14em;padding:.6rem 1.1rem;border-radius:999px;box-shadow:var(--shadow);text-transform:uppercase;z-index:2;transform:rotate(3deg)}
 
   /* timeline */
   .timeline{background:var(--crema-2);overflow:hidden}
   .tl{position:relative;max-width:820px;margin-inline:auto;padding-left:2.2rem}
-  .tl::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:4px;border-radius:4px;background:linear-gradient(var(--rojo),var(--amarillo),var(--azul))}
+  .tl::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:4px;border-radius:4px;background:linear-gradient(var(--durazno),var(--mantequilla),var(--cielo))}
   .tl-item{position:relative;padding:0 0 2.4rem 1.6rem}
-  .tl-item::before{content:"";position:absolute;left:-2.2rem;top:4px;width:22px;height:22px;border-radius:50%;background:var(--papel);border:5px solid var(--rojo);box-shadow:0 0 0 4px rgba(232,38,28,.15)}
-  .tl-item:nth-child(2)::before{border-color:var(--naranja)}
-  .tl-item:nth-child(3)::before{border-color:var(--amarillo)}
-  .tl-item:nth-child(4)::before{border-color:var(--verde)}
-  .tl-item:nth-child(5)::before{border-color:var(--azul)}
+  .tl-item::before{content:"";position:absolute;left:-2.2rem;top:4px;width:22px;height:22px;border-radius:50%;background:var(--papel);border:5px solid var(--durazno);box-shadow:0 0 0 4px rgba(246,199,176,.35)}
+  .tl-item:nth-child(2)::before{border-color:#F8D2A8}
+  .tl-item:nth-child(3)::before{border-color:var(--mantequilla)}
+  .tl-item:nth-child(4)::before{border-color:var(--menta)}
+  .tl-item:nth-child(5)::before{border-color:var(--cielo)}
   .tl-item h3{font-size:1.35rem}
-  .tl-item .when{font-weight:800;color:var(--rojo);letter-spacing:.1em;text-transform:uppercase;font-size:.8rem}
+  .tl-item .when{font-weight:800;color:var(--acento);letter-spacing:.1em;text-transform:uppercase;font-size:.8rem}
   .tl-item p{color:var(--muted);margin:.4rem 0 0}
 
   /* valores */
   .valores .vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;position:relative;z-index:1}
-  .val{background:var(--papel);border-radius:var(--r-lg);padding:2rem 1.7rem;border:2px solid var(--border);transition:.35s var(--bounce);position:relative;overflow:hidden}
+  .val{background:var(--papel);border-radius:var(--r-lg);padding:2rem 1.7rem;border:1.5px solid var(--border);transition:.35s var(--bounce);position:relative;overflow:hidden}
   .val:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
   .val .ico{width:60px;height:60px;border-radius:18px;display:grid;place-items:center;margin-bottom:1.2rem;font-size:1.6rem}
-  .val:nth-child(1) .ico{background:#FFF1D6}
-  .val:nth-child(2) .ico{background:#FFE3E0}
-  .val:nth-child(3) .ico{background:#E4EBFF}
+  .val:nth-child(1) .ico{background:var(--mantequilla-2)}
+  .val:nth-child(2) .ico{background:var(--durazno-2)}
+  .val:nth-child(3) .ico{background:var(--cielo-2)}
   .val h3{font-size:1.3rem;margin-bottom:.5rem}
   .val p{color:var(--muted);font-size:.97rem;margin:0}
   .val::after{content:"";position:absolute;bottom:0;left:0;right:0;height:5px;transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
@@ -93,7 +93,7 @@
     <p class="lead">De una planta en Guadalajara a las mesas de toda Latinoamérica.</p>
   </div>
 </section>
-<svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0,30 C240,60 480,0 720,20 C960,40 1200,10 1440,30 L1440,0 L0,0 Z" fill="#B31009"></path></svg>
+<svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0,30 C240,60 480,0 720,20 C960,40 1200,10 1440,30 L1440,0 L0,0 Z" fill="#EFB9A0"></path></svg>
 
 <!-- ===== HISTORIA ===== -->
 <section class="story">
@@ -175,17 +175,17 @@
     </div>
     <div class="vgrid">
       <div class="val reveal">
-        <div class="ico" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E8261C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6"/><path d="M10 3v5L5 16.5A2 2 0 0 0 6.7 20h10.6a2 2 0 0 0 1.7-3.5L14 8V3"/><path d="M7.5 13h9"/></svg></div>
+        <div class="ico" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B0583F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6"/><path d="M10 3v5L5 16.5A2 2 0 0 0 6.7 20h10.6a2 2 0 0 0 1.7-3.5L14 8V3"/><path d="M7.5 13h9"/></svg></div>
         <h3>Control de calidad</h3>
         <p>Laboratorio propio y estrictas normas de calidad e higiene en cada lote que sale de nuestra planta.</p>
       </div>
       <div class="val reveal">
-        <div class="ico" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C87F1B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></div>
+        <div class="ico" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B07C25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></div>
         <h3>Ingredientes premium</h3>
         <p>Materias primas de la más alta calidad, inclusive Kosher. Sin atajos, sin excepciones.</p>
       </div>
       <div class="val reveal">
-        <div class="ico" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1F3A93" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+        <div class="ico" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5C7BA6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
         <h3>Maquila y marca propia</h3>
         <p>Ponemos nuestra experiencia al servicio de tu marca con el servicio de maquila que nos distingue.</p>
       </div>
