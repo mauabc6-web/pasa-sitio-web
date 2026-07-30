@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=5" />
+<link rel="stylesheet" href="styles.css?v=9" />
 <style>
   /* ===== HERO HOME ===== */
   .hero{
@@ -51,17 +51,23 @@
   /* ===== recetas teaser ===== */
   .uses{background:var(--crema-2);color:var(--tinta);overflow:hidden;border-top:1.5px solid var(--border)}
   .uses-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.3rem;position:relative;z-index:1}
-  .use{position:relative;border-radius:var(--r-lg);overflow:hidden;min-height:320px;display:flex;align-items:flex-end;border:1.5px solid rgba(70,62,48,.1);transition:.35s var(--bounce);color:var(--tinta)}
+  /* tarjetas informativas — no son enlaces, solo ilustran */
+  .use{position:relative;border-radius:var(--r-lg);overflow:hidden;min-height:320px;display:flex;align-items:flex-end;border:1.5px solid rgba(70,62,48,.1);color:var(--tinta);margin:0}
   .use:nth-child(1){background:linear-gradient(160deg,#F0E3C4 0%, var(--trigo) 100%)}
   .use:nth-child(2){background:linear-gradient(160deg,#E7CBB8 0%, var(--arcilla) 100%)}
   .use:nth-child(3){background:linear-gradient(160deg,#D6DFE1 0%, var(--niebla) 100%)}
   .use:nth-child(4){background:linear-gradient(160deg,#E5CFCB 0%, var(--rosa-seca) 100%)}
-  .use:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
-  .use img{position:absolute;inset:0;width:100%;height:60%;object-fit:contain;top:9%;filter:drop-shadow(0 16px 24px rgba(70,62,48,.28));transition:transform .4s var(--ease)}
-  .use:hover img{transform:scale(1.04)}
+  /* caja explícita (una imagen no se estira con width:auto) +
+     object-fit:contain para encajar fotos anchas y altas sin deformar */
+  .use img{
+    position:absolute;left:1.1rem;top:7%;
+    width:calc(100% - 2.2rem);height:60%;object-fit:contain;
+    filter:drop-shadow(0 14px 22px rgba(70,62,48,.26));
+  }
   .use .cap{position:relative;z-index:2;padding:1.25rem;width:100%;background:linear-gradient(to top, rgba(255,255,255,.72), transparent)}
   .use .cap b{font-family:"Fraunces",serif;font-size:1.15rem;display:block}
   .use .cap span{font-size:.84rem;color:var(--tinta-2)}
+  .uses-more{text-align:center;margin-top:2.4rem}
 
   /* ===== retailers ===== */
   .buy{background:var(--crema)}
@@ -224,22 +230,25 @@
       <p>Nuestros productos transforman lo cotidiano en algo memorable.</p>
     </div>
     <div class="uses-grid">
-      <a class="use" href="recetas.html">
-        <img src="assets/scene-helado-vainilla.png" alt="Helado con vainilla y caramelo" loading="lazy" />
-        <div class="cap"><b>Repostería</b><span>Vainilla que enamora</span></div>
-      </a>
-      <a class="use" href="recetas.html">
-        <img src="assets/scene-soya-boat.png" alt="Salsera con salsa de soya" loading="lazy" />
-        <div class="cap"><b>Platillos asiáticos</b><span>Con salsa de soya</span></div>
-      </a>
-      <a class="use" href="recetas.html">
-        <img src="assets/scene-carne.png" alt="Carne asada con salsas negras" loading="lazy" />
-        <div class="cap"><b>Carnes &amp; asados</b><span>Con salsas negras</span></div>
-      </a>
-      <a class="use" href="recetas.html">
-        <img src="assets/scene-papas.png" alt="Botana de papas" loading="lazy" />
-        <div class="cap"><b>Botanas</b><span>El toque perfecto</span></div>
-      </a>
+      <figure class="use">
+        <img decoding="async" src="assets/scene-helado-vainilla.png" alt="Helado con vainilla natural y caramelo" />
+        <figcaption class="cap"><b>Repostería</b><span>Vainilla que enamora</span></figcaption>
+      </figure>
+      <figure class="use">
+        <img decoding="async" src="assets/scene-arroz-soya.png" alt="Arroz, pollo y platillos preparados con salsa de soya" />
+        <figcaption class="cap"><b>Platillos asiáticos</b><span>Con salsa de soya</span></figcaption>
+      </figure>
+      <figure class="use">
+        <img decoding="async" src="assets/scene-carne.png" alt="Corte de carne asada con salsas negras" />
+        <figcaption class="cap"><b>Carnes &amp; asados</b><span>Con salsas negras</span></figcaption>
+      </figure>
+      <figure class="use">
+        <img decoding="async" src="assets/scene-papas.png" alt="Botana de papas con jugo sazonador" />
+        <figcaption class="cap"><b>Botanas</b><span>El toque perfecto</span></figcaption>
+      </figure>
+    </div>
+    <div class="uses-more reveal">
+      <a class="btn mar" href="recetas.html">Ver nuestras recetas →</a>
     </div>
   </div>
 </section>
@@ -322,7 +331,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="main.js?v=5"></script>
+<script src="main.js?v=9"></script>
 <script>
 /* ================= QUIZ ¿QUÉ SABOR ERES? ================= */
 (function(){
