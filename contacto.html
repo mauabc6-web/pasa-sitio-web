@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contacto — PASA | Estamos para servirte</title>
+<meta name="description" content="Contacta a PASA (Panamericana Abarrotera): WhatsApp +52 332 872 4779, Instagram @sabemosdecocina. Guadalajara, Jalisco, México. Maquila y marca propia disponible." />
+<link rel="icon" type="image/png" href="assets/logo-pasa.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .contact-sec{background:var(--crema)}
+  .contact-info h2{font-size:clamp(1.9rem,3.8vw,2.7rem);margin:.9rem 0 1rem}
+  .contact-info > p{color:var(--muted);margin-bottom:2rem;font-size:1.06rem}
+  .maquila{
+    margin-top:2rem;background:var(--tinta);color:var(--crema);border-radius:var(--r-lg);padding:1.8rem;position:relative;overflow:hidden;
+  }
+  .maquila::after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:rgba(255,196,0,.18);filter:blur(50px);top:-70px;right:-60px}
+  .maquila h3{color:var(--amarillo);font-size:1.35rem;margin-bottom:.5rem;position:relative;z-index:1}
+  .maquila p{color:#E8D9C4;font-size:.97rem;margin:0 0 1.2rem;position:relative;z-index:1;max-width:none}
+  .maquila .btn{position:relative;z-index:1}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand" aria-label="PASA - Inicio">
+      <img src="assets/logo-pasa.png" alt="Logo PASA" />
+      <span><b>PASA</b><span>Panamericana Abarrotera</span></span>
+    </a>
+    <nav class="links" id="menu" aria-label="Navegación principal">
+      <a href="index.html">Inicio</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="productos.html">Productos</a>
+      <a href="recetas.html">Recetas</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn" href="productos.html">Ver productos</a>
+      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== PAGE HERO ===== -->
+<section class="page-hero mar">
+  <img class="deco" src="assets/hero-bottles.png" alt="" aria-hidden="true" style="width:240px;bottom:8%;right:5%;opacity:.95" />
+  <div class="wrap">
+    <span class="crumbs">Inicio / Contacto</span>
+    <h1>Estamos para servirte</h1>
+    <p class="lead">¿Dudas, pedidos, distribución o maquila? Escríbenos y con gusto te atendemos desde Guadalajara para todo México y Latinoamérica.</p>
+  </div>
+</section>
+<svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0,30 C240,60 480,0 720,20 C960,40 1200,10 1440,30 L1440,0 L0,0 Z" fill="#14265F"></path></svg>
+
+<!-- ===== CONTACTO ===== -->
+<section class="contact-sec">
+  <span class="blob amarillo" style="width:360px;height:360px;top:10%;right:-130px"></span>
+  <span class="blob rosa" style="width:300px;height:300px;bottom:5%;left:-110px"></span>
+  <div class="wrap contact-grid">
+    <div class="contact-info">
+      <span class="eyebrow reveal">Contacto directo</span>
+      <h2 class="reveal">Hablemos de <span class="gtext">sabor</span></h2>
+      <p class="reveal">Panamericana Abarrotera, S.A. de C.V. — Guadalajara, Jalisco, México.</p>
+      <a class="cinfo reveal" href="https://wa.me/523328724779" target="_blank" rel="noopener">
+        <span class="ic"><img src="assets/icon-whatsapp.png" alt="" /></span>
+        <span><b>WhatsApp</b><span>+52 332 872 4779</span></span>
+      </a>
+      <a class="cinfo reveal" href="https://instagram.com/sabemosdecocina" target="_blank" rel="noopener">
+        <span class="ic"><img src="assets/icon-instagram.png" alt="" /></span>
+        <span><b>Instagram</b><span>@sabemosdecocina</span></span>
+      </a>
+      <a class="cinfo reveal" href="#">
+        <span class="ic"><img src="assets/icon-facebook.png" alt="" /></span>
+        <span><b>Facebook</b><span>Panamericana Abarrotera</span></span>
+      </a>
+      <a class="cinfo reveal" href="#">
+        <span class="ic"><img src="assets/icon-linkedin.png" alt="" /></span>
+        <span><b>LinkedIn</b><span>Panamericana Abarrotera S.A. de C.V.</span></span>
+      </a>
+      <div class="maquila reveal">
+        <h3>Maquila y marca propia</h3>
+        <p>Elaboramos productos alimenticios líquidos para tu marca con la misma calidad que distingue a PASA: laboratorio propio, normas estrictas y materias primas premium.</p>
+        <a class="btn sol" href="https://wa.me/523328724779?text=Hola%20PASA,%20me%20interesa%20el%20servicio%20de%20maquila" target="_blank" rel="noopener">Cotizar maquila</a>
+      </div>
+    </div>
+    <form class="contact-card reveal" id="contactForm">
+      <div class="field"><label for="nombre">Nombre</label><input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required /></div>
+      <div class="field"><label for="correo">Correo electrónico</label><input id="correo" name="correo" type="email" placeholder="tu@correo.com" required /></div>
+      <div class="field"><label for="mensaje">Mensaje</label><textarea id="mensaje" name="mensaje" placeholder="¿Cómo podemos ayudarte?" required></textarea></div>
+      <button class="btn" type="submit" style="width:100%;justify-content:center">Enviar mensaje</button>
+      <p style="font-size:.82rem;color:var(--muted);text-align:center;margin:.9rem 0 0">Tu mensaje se envía directo a nuestro WhatsApp oficial.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq-sec">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow center">Preguntas frecuentes</span>
+      <h2>¿Tienes <span class="gtext">dudas</span>?</h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>¿Dónde puedo comprar productos PASA?</summary>
+        <div class="faq-body">En las principales cadenas de autoservicio de México: Walmart, Sam's Club, La Comer, City Market, Fresko, MEGA, Bodega Aurrera, Soriana, Chedraui, Casa Ley, Sumesa, VIPS y Farmacias del Ahorro, entre otras.</div>
+      </details>
+      <details>
+        <summary>¿Sus productos son Kosher?</summary>
+        <div class="faq-body">Sí. Nuestros productos se elaboran con materias primas de la más alta calidad, inclusive Kosher, bajo estrictas normas de calidad e higiene en nuestra planta de Guadalajara.</div>
+      </details>
+      <details>
+        <summary>¿Qué diferencia hay entre PASA y POSA?</summary>
+        <div class="faq-body">PASA es nuestra marca comercial líder en vainillas, soyas y salsas. POSA es nuestra línea de vainilla fina natural, pensada para quienes buscan lo mejor de la vainilla mexicana.</div>
+      </details>
+      <details>
+        <summary>¿Hacen maquila para marca propia?</summary>
+        <div class="faq-body">Sí. Elaboramos productos alimenticios líquidos para marca propia con laboratorio propio y control de calidad. Escríbenos por WhatsApp y con gusto te cotizamos.</div>
+      </details>
+      <details>
+        <summary>¿Venden a otros países?</summary>
+        <div class="faq-body">Nuestra marca es reconocida a nivel Latinoamérica. Contáctanos para conocer opciones de distribución en tu región.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><img src="assets/logo-pasa.png" alt="Logo PASA" /><b>PASA</b></div>
+        <p>Panamericana Abarrotera, S.A. de C.V. Empresa líder en vainillas, soyas, salsas y aderezos. Desde 1985, hecho en México con calidad de exportación.</p>
+        <div class="socials">
+          <a href="https://wa.me/523328724779" target="_blank" rel="noopener" aria-label="WhatsApp"><img src="assets/icon-whatsapp.png" alt="" /></a>
+          <a href="https://instagram.com/sabemosdecocina" target="_blank" rel="noopener" aria-label="Instagram"><img src="assets/icon-instagram.png" alt="" /></a>
+          <a href="#" aria-label="Facebook"><img src="assets/icon-facebook.png" alt="" /></a>
+          <a href="#" aria-label="LinkedIn"><img src="assets/icon-linkedin.png" alt="" /></a>
+        </div>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="productos.html">Productos</a>
+          <a href="recetas.html">Recetas</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <div>
+        <h4>Productos</h4>
+        <a href="productos.html">Vainillas</a>
+        <a href="productos.html">Soyas</a>
+        <a href="productos.html">Sazonadores</a>
+        <a href="productos.html">Aderezos</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span data-year></span> PASA — Panamericana Abarrotera, S.A. de C.V.</span>
+      <span>Guadalajara, Jalisco · México</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

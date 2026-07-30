@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Productos — PASA | Vainillas, Soyas, Sazonadores y Aderezos</title>
+<meta name="description" content="Catálogo completo PASA: 4 vainillas (POSA, Superior, Natural, Tu Marca), 3 soyas (natural, light, habanero), 4 sazonadores (salsas negras, ostión, inglesa, jugo) y 6 aderezos gourmet." />
+<link rel="icon" type="image/png" href="assets/logo-pasa.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  /* ====== sub-nav sticky de categorías ====== */
+  .catnav{position:sticky;top:66px;z-index:80;background:rgba(255,247,234,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:2px solid var(--border)}
+  .catnav .inner{display:flex;gap:.4rem;overflow-x:auto;padding:.7rem 0;scrollbar-width:none}
+  .catnav .inner::-webkit-scrollbar{display:none}
+  .catnav a{
+    flex:none;display:flex;align-items:center;gap:.5rem;font-weight:800;font-size:.92rem;color:var(--tinta);
+    padding:.6rem 1.1rem;border-radius:999px;border:2px solid transparent;transition:.25s var(--ease);white-space:nowrap;
+  }
+  .catnav a .dot{width:9px;height:9px;border-radius:50%;flex:none}
+  .catnav a[href="#vainillas"] .dot{background:var(--amarillo)}
+  .catnav a[href="#soyas"] .dot{background:var(--rojo)}
+  .catnav a[href="#sazonadores"] .dot{background:var(--azul)}
+  .catnav a[href="#aderezos"] .dot{background:var(--rosa)}
+  .catnav a:hover{background:var(--crema-2)}
+  .catnav a.on{background:var(--tinta);color:#fff}
+  .catnav a .c{font-size:.72rem;font-weight:900;opacity:.7}
+
+  /* ====== bloque de categoría ====== */
+  .catsec{padding:clamp(56px,7vw,92px) 0;position:relative;scroll-margin-top:132px}
+  .catsec.alt{background:var(--crema-2)}
+  .cat-head{display:flex;align-items:flex-end;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;margin-bottom:2.6rem;position:relative;z-index:1}
+  .cat-head .t .k{font-size:.7rem;font-weight:900;letter-spacing:.2em;text-transform:uppercase;display:inline-flex;align-items:center;gap:.5rem}
+  .cat-head .t .k i{width:10px;height:10px;border-radius:50%;display:inline-block}
+  .cat-head .t h2{font-size:clamp(1.9rem,4vw,2.9rem);margin:.5rem 0 .5rem}
+  .cat-head .t p{color:var(--muted);max-width:52ch;margin:0;font-size:1.03rem}
+  .cat-head .tally{font-family:"Fraunces",serif;font-weight:900;font-size:clamp(2.6rem,6vw,4.2rem);line-height:.9;color:transparent;-webkit-text-stroke:2px var(--border)}
+
+  /* ====== modal detalle con galería ====== */
+  .dov{position:fixed;inset:0;z-index:300;display:grid;place-items:center;padding:1.2rem;background:rgba(38,18,13,.58);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);opacity:0;pointer-events:none;transition:opacity .3s}
+  .dov.open{opacity:1;pointer-events:auto}
+  .dm{
+    width:min(940px,100%);max-height:90vh;overflow:auto;background:var(--papel);border-radius:var(--r-lg);
+    display:grid;grid-template-columns:1fr 1.05fr;position:relative;box-shadow:var(--shadow-lg);
+    transform:scale(.93) translateY(16px);transition:transform .36s var(--bounce);
+  }
+  .dov.open .dm{transform:none}
+  .dm-x{position:absolute;top:.9rem;right:.9rem;z-index:5;width:42px;height:42px;border-radius:50%;border:none;cursor:pointer;background:var(--tinta);color:#fff;font-size:1.1rem;transition:background .25s}
+  .dm-x:hover{background:var(--rojo)}
+  .dm-vis{position:relative;background:radial-gradient(circle at 50% 32%, #fff 5%, var(--crema-2) 100%);padding:2rem 1.6rem;display:flex;flex-direction:column;align-items:center;gap:1rem}
+  .dm-stage{flex:1;display:grid;place-items:center;width:100%;overflow:hidden;border-radius:var(--r)}
+  .dm-stage img{max-height:330px;width:auto;max-width:100%;object-fit:contain;filter:drop-shadow(0 22px 30px rgba(38,18,13,.28));transition:transform .35s var(--ease);cursor:zoom-in}
+  .dm-stage.zoom img{transform:scale(1.5);cursor:zoom-out}
+  .dm-hint{font-size:.72rem;color:var(--muted);font-weight:700}
+  .dm-thumbs{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center}
+  .dm-thumbs button{
+    width:58px;height:58px;border-radius:12px;border:2px solid var(--border);background:#fff;cursor:pointer;
+    display:grid;place-items:center;padding:4px;transition:.25s var(--bounce);
+  }
+  .dm-thumbs button img{max-height:100%;max-width:100%;object-fit:contain}
+  .dm-thumbs button:hover{transform:translateY(-3px)}
+  .dm-thumbs button.on{border-color:var(--rojo);box-shadow:0 0 0 3px rgba(232,38,28,.16)}
+  .dm-body{padding:2.2rem 2rem;display:flex;flex-direction:column}
+  .dm-body .k{font-size:.68rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--rojo)}
+  .dm-body h3{font-size:1.85rem;margin:.5rem 0 .7rem;line-height:1.12}
+  .dm-body .desc{color:var(--muted);font-size:1rem;line-height:1.6;margin:0 0 1.3rem}
+  .dm-body h4{font-family:"Karla",sans-serif;font-weight:800;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta);margin:0 0 .6rem}
+  .dm-sizes{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.4rem}
+  .dm-sizes span{font-size:.8rem;font-weight:800;background:var(--crema-2);border:1.5px solid var(--border);padding:.34rem .7rem;border-radius:9px}
+  .dm-feats{display:grid;gap:.5rem;margin:0 0 1.5rem}
+  .dm-feats li{display:flex;gap:.6rem;align-items:flex-start;font-size:.93rem;color:var(--tinta-2)}
+  .dm-feats li::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--amarillo);margin-top:.5rem}
+  .dm-nav{display:flex;gap:.5rem;margin-top:auto}
+  .dm-nav button{
+    flex:1;font-family:inherit;font-weight:800;font-size:.9rem;cursor:pointer;padding:.8rem 1rem;border-radius:999px;
+    border:2px solid var(--border);background:var(--crema);color:var(--tinta);transition:.25s var(--ease);
+  }
+  .dm-nav button:hover:not(:disabled){border-color:var(--rojo);color:var(--rojo)}
+  .dm-nav button:disabled{opacity:.35;cursor:not-allowed}
+  @media (max-width:780px){
+    .dm{grid-template-columns:1fr}
+    .dm-vis{padding:2.4rem 1.2rem 1.2rem}
+    .dm-stage img{max-height:220px}
+    .dm-body{padding:1.6rem 1.4rem 1.8rem}
+  }
+  @media (max-width:600px){
+    .cat-head .tally{display:none}
+    .catnav{top:60px}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand" aria-label="PASA - Inicio">
+      <img src="assets/logo-pasa.png" alt="Logo PASA" />
+      <span><b>PASA</b><span>Panamericana Abarrotera</span></span>
+    </a>
+    <nav class="links" id="menu" aria-label="Navegación principal">
+      <a href="index.html">Inicio</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="productos.html">Productos</a>
+      <a href="recetas.html">Recetas</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn" href="contacto.html">Contáctanos</a>
+      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== PAGE HERO ===== -->
+<section class="page-hero sol">
+  <img class="deco" src="assets/p-vainilla-natural.png" alt="" aria-hidden="true" style="width:120px;top:20%;right:7%;transform:rotate(8deg)" />
+  <img class="deco" src="assets/ing-mango.png" alt="" aria-hidden="true" style="width:140px;bottom:16%;right:22%" />
+  <div class="wrap">
+    <span class="crumbs">Inicio / Productos</span>
+    <h1>Nuestra línea completa</h1>
+    <p class="lead">17 productos en cuatro familias. Toca cualquier producto para ver su detalle, presentaciones y usos recomendados.</p>
+  </div>
+</section>
+<svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0,30 C240,60 480,0 720,20 C960,40 1200,10 1440,30 L1440,0 L0,0 Z" fill="#E8A400"></path></svg>
+
+<!-- ===== SUB-NAV CATEGORÍAS ===== -->
+<div class="catnav" id="catnav">
+  <div class="wrap inner">
+    <a href="#vainillas"><span class="dot"></span>Vainillas <span class="c">4</span></a>
+    <a href="#soyas"><span class="dot"></span>Soyas <span class="c">3</span></a>
+    <a href="#sazonadores"><span class="dot"></span>Sazonadores <span class="c">4</span></a>
+    <a href="#aderezos"><span class="dot"></span>Aderezos <span class="c">6</span></a>
+  </div>
+</div>
+
+<!-- ===== VAINILLAS ===== -->
+<section class="catsec" id="vainillas">
+  <span class="blob amarillo" style="width:400px;height:400px;top:2%;right:-150px"></span>
+  <div class="wrap">
+    <div class="cat-head reveal">
+      <div class="t">
+        <span class="k" style="color:#C87F1B"><i style="background:var(--amarillo)"></i>Línea 01</span>
+        <h2>Vainillas</h2>
+        <p>El sabor más popular del mundo, originario de México. De uso doméstico a presentaciones industriales de 20 litros.</p>
+      </div>
+      <div class="tally">04</div>
+    </div>
+    <div class="pgrid" data-cat="vainillas"></div>
+  </div>
+</section>
+
+<!-- ===== SOYAS ===== -->
+<section class="catsec alt" id="soyas">
+  <span class="blob rojo" style="width:360px;height:360px;bottom:4%;left:-140px"></span>
+  <div class="wrap">
+    <div class="cat-head reveal">
+      <div class="t">
+        <span class="k" style="color:var(--rojo)"><i style="background:var(--rojo)"></i>Línea 02</span>
+        <h2>Soyas</h2>
+        <p>Elaboradas con ingredientes premium en tres versiones: natural, light con 45% menos sal y picante con chile habanero.</p>
+      </div>
+      <div class="tally">03</div>
+    </div>
+    <div class="pgrid c3" data-cat="soyas"></div>
+  </div>
+</section>
+
+<!-- ===== SAZONADORES ===== -->
+<section class="catsec" id="sazonadores">
+  <span class="blob azul" style="width:380px;height:380px;top:6%;right:-140px"></span>
+  <div class="wrap">
+    <div class="cat-head reveal">
+      <div class="t">
+        <span class="k" style="color:var(--azul)"><i style="background:var(--azul)"></i>Línea 03</span>
+        <h2>Sazonadores</h2>
+        <p>El secreto detrás de los mejores platillos: salsas negras, sabor ostión, tipo inglesa y jugo sazonador bajo en sodio.</p>
+      </div>
+      <div class="tally">04</div>
+    </div>
+    <div class="pgrid" data-cat="sazonadores"></div>
+  </div>
+</section>
+
+<!-- ===== ADEREZOS ===== -->
+<section class="catsec alt" id="aderezos">
+  <span class="blob rosa" style="width:380px;height:380px;bottom:2%;left:-140px"></span>
+  <div class="wrap">
+    <div class="cat-head reveal">
+      <div class="t">
+        <span class="k" style="color:var(--rosa)"><i style="background:var(--rosa)"></i>Línea 04</span>
+        <h2>Aderezos</h2>
+        <p>Sazonadores gourmet para marinar y realzar ensaladas, carnes y pescados. Seis perfiles de sabor en botella de 355 ml.</p>
+      </div>
+      <div class="tally">06</div>
+    </div>
+    <div class="pgrid c3" data-cat="aderezos"></div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="band">
+  <div class="wrap">
+    <h2 class="reveal">¿Dónde comprar?</h2>
+    <p class="reveal">Encuéntranos en Walmart, Sam's Club, La Comer, Soriana, Chedraui y las principales cadenas del país.</p>
+    <a class="btn sol reveal" href="index.html#comprar">Ver puntos de venta</a>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><img src="assets/logo-pasa.png" alt="Logo PASA" /><b>PASA</b></div>
+        <p>Panamericana Abarrotera, S.A. de C.V. Empresa líder en vainillas, soyas, salsas y aderezos. Desde 1985, hecho en México con calidad de exportación.</p>
+        <div class="socials">
+          <a href="https://wa.me/523328724779" target="_blank" rel="noopener" aria-label="WhatsApp"><img src="assets/icon-whatsapp.png" alt="" /></a>
+          <a href="https://instagram.com/sabemosdecocina" target="_blank" rel="noopener" aria-label="Instagram"><img src="assets/icon-instagram.png" alt="" /></a>
+          <a href="#" aria-label="Facebook"><img src="assets/icon-facebook.png" alt="" /></a>
+          <a href="#" aria-label="LinkedIn"><img src="assets/icon-linkedin.png" alt="" /></a>
+        </div>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="productos.html">Productos</a>
+        <a href="recetas.html">Recetas</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <div>
+        <h4>Líneas</h4>
+        <a href="#vainillas">Vainillas</a>
+        <a href="#soyas">Soyas</a>
+        <a href="#sazonadores">Sazonadores</a>
+        <a href="#aderezos">Aderezos</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span data-year></span> PASA — Panamericana Abarrotera, S.A. de C.V.</span>
+      <span>Guadalajara, Jalisco · México</span>
+    </div>
+  </div>
+</footer>
+
+<!-- modal detalle -->
+<div class="dov" id="dov">
+  <div class="dm" role="dialog" aria-modal="true" aria-labelledby="dmTitle">
+    <button class="dm-x" id="dmX" aria-label="Cerrar">✕</button>
+    <div class="dm-vis">
+      <div class="dm-stage" id="dmStage"></div>
+      <p class="dm-hint">Toca la imagen para acercar</p>
+      <div class="dm-thumbs" id="dmThumbs"></div>
+    </div>
+    <div class="dm-body">
+      <span class="k" id="dmCat"></span>
+      <h3 id="dmTitle"></h3>
+      <p class="desc" id="dmDesc"></p>
+      <h4>Presentaciones</h4>
+      <div class="dm-sizes" id="dmSizes"></div>
+      <h4>Ideal para</h4>
+      <ul class="dm-feats" id="dmFeats"></ul>
+      <div class="dm-nav">
+        <button id="dmPrev">← Anterior</button>
+        <button id="dmNext">Siguiente →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="main.js"></script>
+<script>
+/* =========================================================
+   CATÁLOGO PASA — datos reales del sitio oficial
+   ========================================================= */
+const CATALOGO = [
+  /* ---------- VAINILLAS ---------- */
+  { cat:'vainillas', tone:'#FFC400', light:true, chip:'Vainilla', name:'Vainilla Natural POSA',
+    img:'assets/p-vainilla-posa.png',
+    desc:'Nuestra línea fina de vainilla natural. El sabor más popular del mundo, originario de México, con la concentración que exige la repostería profesional.',
+    sizes:['125 ml','250 ml','500 ml','1 L','3.75 L','4 L','5 L','20 L'],
+    feats:['Repostería profesional y panadería','Helados, flanes y cremas','Bebidas, café y licuados'] },
+  { cat:'vainillas', tone:'#FFC400', light:true, chip:'Vainilla', name:'Vainilla Natural Superior',
+    img:'assets/p-vainilla-superior.png',
+    desc:'Formulación superior con mayor concentración de sabor. Disponible desde uso doméstico hasta bidón industrial de 20 litros.',
+    sizes:['125 ml','250 ml','500 ml','1 L','3.75 L','4 L','5 L','20 L'],
+    feats:['Uso industrial y food service','Mayor rendimiento por gota','Postres de sabor intenso'] },
+  { cat:'vainillas', tone:'#FFC400', light:true, chip:'Vainilla', name:'Vainilla Natural',
+    img:'assets/p-vainilla-natural.png',
+    desc:'La vainilla clásica preferida por generaciones de cocinas mexicanas. Sabor intenso y aroma inconfundible para tus postres favoritos.',
+    sizes:['250 ml','500 ml'],
+    feats:['Uso diario en casa','Pasteles, galletas y atoles','El clásico de la despensa'] },
+  { cat:'vainillas', tone:'#FFC400', light:true, chip:'Vainilla', name:'Vainilla Natural TU MARCA',
+    img:'assets/p-vainilla-tumarca.png',
+    desc:'Diseñamos tu propia marca de vainilla. Servicio de maquila con la calidad PASA, con tu etiqueta, tu diseño y la presentación que necesites.',
+    sizes:['Marca propia','Maquila','Etiqueta a medida'],
+    feats:['Marca propia para tu negocio','Laboratorio y control de calidad','Presentaciones a medida'] },
+
+  /* ---------- SOYAS ---------- */
+  { cat:'soyas', tone:'#E8261C', chip:'Soya', name:'Soya Natural',
+    img:'assets/p-soya-natural.png',
+    desc:'Elaborada con ingredientes premium. El equilibrio perfecto de sabor salado y umami para platillos orientales, arroces y marinados.',
+    sizes:['175 ml','500 ml','1 L','2 L','4 L'],
+    feats:['Arroz frito, ramen y salteados','Marinar carnes y pollo','Sushi y cocina asiática'] },
+  { cat:'soyas', tone:'#0FA958', chip:'Soya', name:'Soya Light, bajo en sodio',
+    img:'assets/p-soya-light.png',
+    desc:'Todo el sabor de nuestra soya con 45% menos sal. Ligera y equilibrada, sin sacrificar carácter ni profundidad.',
+    sizes:['175 ml','500 ml','1 L','2 L','4 L'],
+    feats:['45% menos sal','Dietas bajas en sodio','Ensaladas y verduras al vapor'] },
+  { cat:'soyas', tone:'#FF7A00', chip:'Soya', name:'Soya Picante con Habanero',
+    img:'assets/p-soya-habanero.png',
+    desc:'Sazonador de soya con el toque bravo del chile habanero. Para quienes buscan umami y picor en un solo producto.',
+    sizes:['175 ml','500 ml','1 L','2 L','4 L'],
+    feats:['Alitas y costillas glaseadas','Botanas y mariscos','Quien busca picor con sabor'] },
+
+  /* ---------- SAZONADORES ---------- */
+  { cat:'sazonadores', tone:'#1F3A93', chip:'Sazonador', name:'Salsas Negras',
+    img:'assets/p-salsas-negras.png',
+    desc:'Ideales para cocteleras, mariscos y platillos con carácter. Profundidad de sabor y color en cada gota.',
+    sizes:['175 ml','500 ml','1 L','2 L','4 L'],
+    feats:['Cocteles de camarón y mariscos','Carnes y asados','Micheladas y botanas'] },
+  { cat:'sazonadores', tone:'#0EA5C9', chip:'Sazonador', name:'Salsa sabor Ostión',
+    img:'assets/p-salsa-ostion.png',
+    desc:'Dulce, salada y llena de umami. El complemento ideal para salteados, pescados, arroces y cocina asiática.',
+    sizes:['175 ml','500 ml','1 L','2 L','4 L'],
+    feats:['Salteados y wok','Pescados y espinacas','Arroces y fideos'] },
+  { cat:'sazonadores', tone:'#3C221A', chip:'Sazonador', name:'Salsa tipo Inglesa',
+    img:'assets/p-salsa-inglesa.png',
+    desc:'Estilo Worcestershire, el clásico infaltable de la cocina mexicana para carnes, botanas, micheladas y guisos.',
+    sizes:['175 ml','500 ml','1 L','2 L','4 L'],
+    feats:['Cortes y carne asada','Micheladas y clamatos','Guisos y caldos'] },
+  { cat:'sazonadores', tone:'#FF7A00', chip:'Sazonador', name:'Jugo Sazonador bajo en sodio',
+    img:'assets/p-jugo-sazonador.png',
+    desc:'Realza el sabor de botanas, carnes y sopas con una sola gota, ahora con menor contenido de sodio.',
+    sizes:['175 ml','500 ml','1 L','2 L','4 L'],
+    feats:['Papas, palomitas y botanas','Sopas y consomés','Bajo en sodio'] },
+
+  /* ---------- ADEREZOS ---------- */
+  { cat:'aderezos', tone:'#FF3E6C', chip:'Aderezo', name:'Aderezo Frambuesa Jamaica',
+    img:'assets/p-ad-frambuesa.png',
+    desc:'Sazonador gourmet para marinar con un contraste dulce y floral irresistible. Perfecto en ensaladas y carnes blancas.',
+    sizes:['355 ml'],
+    feats:['Ensaladas con queso de cabra','Marinar pollo y cerdo','Vinagreta frutal'] },
+  { cat:'aderezos', tone:'#FF7A00', chip:'Aderezo', name:'Aderezo Mango',
+    img:'assets/p-ad-mango.png',
+    desc:'El dulzor tropical del mango en un sazonador versátil para marinar, glasear y realzar ensaladas.',
+    sizes:['355 ml'],
+    feats:['Glaseado para salmón','Ensaladas tropicales','Marinar pollo a la parrilla'] },
+  { cat:'aderezos', tone:'#C87F1B', chip:'Aderezo', name:'Aderezo Caramelizado',
+    img:'assets/p-ad-caramelizado.png',
+    desc:'Notas dulces de ajo y cebolla caramelizada que transforman verduras, carnes y ensaladas templadas.',
+    sizes:['355 ml'],
+    feats:['Verduras al horno','Ensaladas templadas','Carnes con toque dulce'] },
+  { cat:'aderezos', tone:'#FFC400', light:true, chip:'Aderezo', name:'Aderezo César a la Parmesana',
+    img:'assets/p-ad-cesar.png',
+    desc:'Cremoso, con el toque inconfundible del queso parmesano. La ensalada césar perfecta, sin complicaciones.',
+    sizes:['355 ml'],
+    feats:['Ensalada césar clásica','Wraps y sándwiches','Dip para crudités'] },
+  { cat:'aderezos', tone:'#B3186B', chip:'Aderezo', name:'Aderezo Soya Limón',
+    img:'assets/p-ad-soyalimon.png',
+    desc:'La combinación de nuestra soya con la frescura del limón. Ideal para marinar pescados, mariscos y pollo.',
+    sizes:['355 ml'],
+    feats:['Aguachiles y ceviches','Marinar pescado y camarón','Ensaladas orientales'] },
+  { cat:'aderezos', tone:'#0FA958', chip:'Aderezo', name:'Vinagreta Finas Hierbas',
+    img:'assets/p-ad-finashierbas.png',
+    desc:'Ligera y aromática, con la mezcla justa de hierbas finas para elevar cualquier ensalada.',
+    sizes:['355 ml'],
+    feats:['Ensaladas verdes','Papa y pasta fría','Marinar verduras'] },
+];
+
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const hasG = typeof gsap !== 'undefined' && !reduce;
+  const CATS = ['vainillas','soyas','sazonadores','aderezos'];
+
+  /* ---------- render de tarjetas ---------- */
+  document.querySelectorAll('.pgrid').forEach(grid => {
+    const items = CATALOGO.filter(p => p.cat === grid.dataset.cat);
+    grid.innerHTML = items.map(p => {
+      const i = CATALOGO.indexOf(p);
+      const short = p.desc.length > 96 ? p.desc.slice(0,93).trim() + '…' : p.desc;
+      const extra = p.sizes.length > 4 ? ` · +${p.sizes.length - 4} más` : '';
+      const n = p.sizes.length;
+      const kicker = n > 1 ? `${String(n).padStart(2,'0')} presentaciones` : p.sizes[0];
+      return `
+      <article class="pcard tall${p.light ? ' light' : ''}" data-i="${i}" tabindex="0" role="button"
+               aria-label="Ver detalle de ${p.name}" style="--tone:${p.tone}">
+        <div class="pc-media"><img class="pc-bottle" src="${p.img}" alt="${p.name}" loading="lazy" /></div>
+        <div class="pc-txt">
+          <span class="pc-k">${kicker}</span>
+          <h3>${p.name}</h3>
+          <p>${short}</p>
+          <div class="pc-sizes">${p.sizes.slice(0,4).map((s,k)=>`<button type="button" data-s="${s}" class="${k===0?'sel':''}">${s}</button>`).join('')}</div>
+          <div class="pc-pick">Elegido: <b>${p.sizes[0]}</b>${extra}</div>
+          <span class="pc-go">Ver detalle <em>→</em></span>
+        </div>
+      </article>`;
+    }).join('');
+  });
+
+  /* ---------- selector de presentación ---------- */
+  document.querySelectorAll('.pcard').forEach(card => {
+    const p = CATALOGO[+card.dataset.i];
+    const pick = card.querySelector('.pc-pick');
+    const extra = p.sizes.length > 4 ? ` · +${p.sizes.length - 4} más` : '';
+    card.querySelectorAll('.pc-sizes button').forEach(b => {
+      b.addEventListener('click', e => {
+        e.stopPropagation();
+        card.querySelectorAll('.pc-sizes button').forEach(x => x.classList.remove('sel'));
+        b.classList.add('sel');
+        pick.innerHTML = `Elegido: <b>${b.dataset.s}</b>${extra}`;
+        if (hasG) gsap.fromTo(pick, {opacity:.3, y:-3}, {opacity:1, y:0, duration:.3});
+      });
+    });
+  });
+
+  /* ---------- modal detalle ---------- */
+  const dov = document.getElementById('dov'), stage = document.getElementById('dmStage'),
+        thumbs = document.getElementById('dmThumbs'), catEl = document.getElementById('dmCat'),
+        titleEl = document.getElementById('dmTitle'), descEl = document.getElementById('dmDesc'),
+        sizesEl = document.getElementById('dmSizes'), featsEl = document.getElementById('dmFeats'),
+        prevB = document.getElementById('dmPrev'), nextB = document.getElementById('dmNext');
+  let cur = 0, lastFocus = null;
+
+  function paint(i){
+    cur = i;
+    const p = CATALOGO[i];
+    const family = CATALOGO.filter(x => x.cat === p.cat);
+    catEl.textContent = `${p.chip} · Línea ${String(CATS.indexOf(p.cat)+1).padStart(2,'0')}`;
+    titleEl.textContent = p.name;
+    descEl.textContent = p.desc;
+    sizesEl.innerHTML = p.sizes.map(s => `<span>${s}</span>`).join('');
+    featsEl.innerHTML = p.feats.map(f => `<li>${f}</li>`).join('');
+    stage.classList.remove('zoom');
+    stage.innerHTML = `<img src="${p.img}" alt="${p.name}" />`;
+    stage.querySelector('img').addEventListener('click', () => stage.classList.toggle('zoom'));
+    thumbs.innerHTML = family.map(f => {
+      const gi = CATALOGO.indexOf(f);
+      return `<button type="button" data-i="${gi}" class="${gi===i?'on':''}" aria-label="${f.name}"><img src="${f.img}" alt="" /></button>`;
+    }).join('');
+    thumbs.querySelectorAll('button').forEach(b => b.addEventListener('click', () => paint(+b.dataset.i)));
+    prevB.disabled = i <= 0;
+    nextB.disabled = i >= CATALOGO.length - 1;
+    if (hasG) gsap.fromTo(stage.querySelector('img'), {opacity:0, scale:.9}, {opacity:1, scale:1, duration:.4, ease:'back.out(1.5)'});
+  }
+
+  const open = i => {
+    lastFocus = document.activeElement;
+    paint(i);
+    dov.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('dmX').focus();
+  };
+  const close = () => {
+    dov.classList.remove('open');
+    document.body.style.overflow = '';
+    if (lastFocus) lastFocus.focus();
+  };
+
+  document.querySelectorAll('.pcard').forEach(card => {
+    card.addEventListener('click', () => open(+card.dataset.i));
+    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(+card.dataset.i); } });
+  });
+  document.getElementById('dmX').addEventListener('click', close);
+  dov.addEventListener('click', e => { if (e.target === dov) close(); });
+  prevB.addEventListener('click', () => paint(Math.max(0, cur-1)));
+  nextB.addEventListener('click', () => paint(Math.min(CATALOGO.length-1, cur+1)));
+  document.addEventListener('keydown', e => {
+    if (!dov.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft' && cur > 0) paint(cur-1);
+    if (e.key === 'ArrowRight' && cur < CATALOGO.length-1) paint(cur+1);
+  });
+
+  /* ---------- sub-nav activa según scroll ---------- */
+  const navLinks = [...document.querySelectorAll('.catnav a')];
+  const setOn = id => navLinks.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#'+id));
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(es => {
+      const vis = es.filter(e => e.isIntersecting).sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (vis) setOn(vis.target.id);
+    }, {rootMargin:'-45% 0px -45% 0px'});
+    CATS.forEach(c => { const s = document.getElementById(c); if (s) io.observe(s); });
+  }
+  setOn('vainillas');
+
+  /* ---------- reveal de tarjetas ---------- */
+  if (hasG) {
+    gsap.registerPlugin(ScrollTrigger);
+    document.querySelectorAll('.pgrid').forEach(g => {
+      gsap.set(g.children, {opacity:0, y:30});
+      ScrollTrigger.batch(g.children, {
+        start:'top 92%',
+        onEnter: b => gsap.to(b, {opacity:1, y:0, duration:.6, stagger:.07, ease:'power3.out', overwrite:true})
+      });
+    });
+    ScrollTrigger.refresh();
+  }
+})();
+</script>
+</body>
+</html>

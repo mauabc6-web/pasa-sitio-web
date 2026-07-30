@@ -1,0 +1,5 @@
+# Documentos internos — no publicar
+cotizacion-*.html
+
+# macOS
+.DS_Store

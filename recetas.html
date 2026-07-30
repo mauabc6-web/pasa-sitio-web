@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Recetas e Inspiración — PASA | Sabemos de cocina</title>
+<meta name="description" content="Ideas y recetas con productos PASA: repostería con vainilla, platillos asiáticos con soya, carnes con salsas negras y ensaladas con aderezos gourmet." />
+<link rel="icon" type="image/png" href="assets/logo-pasa.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .recipes{background:var(--crema)}
+  .recipe{
+    display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.6rem,4vw,3.5rem);align-items:center;
+    margin-bottom:clamp(3rem,6vw,5.5rem);position:relative;z-index:1;
+  }
+  .recipe:last-child{margin-bottom:0}
+  .recipe:nth-child(even) .r-visual{order:2}
+  .r-visual{position:relative;border-radius:var(--r-lg);min-height:340px;display:grid;place-items:center;overflow:hidden}
+  .recipe:nth-child(1) .r-visual{background:var(--grad-sol)}
+  .recipe:nth-child(2) .r-visual{background:var(--grad-fuego)}
+  .recipe:nth-child(3) .r-visual{background:linear-gradient(140deg,#33201A,#0f0b08)}
+  .recipe:nth-child(4) .r-visual{background:var(--grad-berry)}
+  .r-visual img.main{width:78%;position:relative;z-index:2;filter:drop-shadow(0 28px 36px rgba(0,0,0,.4));transition:transform .4s var(--ease)}
+  .recipe:hover .r-visual img.main{transform:scale(1.03)}
+  .r-visual .prod{position:absolute;z-index:3;width:88px;bottom:8%;right:7%;filter:drop-shadow(0 14px 20px rgba(0,0,0,.45))}
+  .r-visual::after{content:"";position:absolute;width:150%;aspect-ratio:1;border-radius:50%;border:2px dashed rgba(255,255,255,.3)}
+  .r-copy .num{font-family:"Fraunces",serif;font-weight:900;font-size:1rem;letter-spacing:.2em;color:var(--rojo)}
+  .r-copy h2{font-size:clamp(1.7rem,3.4vw,2.5rem);margin:.5rem 0 .9rem}
+  .r-copy p{color:var(--muted);font-size:1.04rem}
+  .r-copy .tips{margin-top:1.2rem;display:grid;gap:.55rem}
+  .r-copy .tips li{display:flex;gap:.7rem;align-items:flex-start;font-size:.98rem;color:var(--tinta-2)}
+  .r-copy .tips li::before{content:"✦";color:var(--naranja);font-size:1rem;line-height:1.5}
+  .r-copy .prod-link{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.3rem;font-weight:800;color:var(--rojo);border-bottom:2px solid var(--amarillo);padding-bottom:2px;transition:.25s}
+  .r-copy .prod-link:hover{gap:.9rem;color:var(--rojo-deep)}
+  @media (max-width:860px){
+    .recipe{grid-template-columns:1fr}
+    .recipe:nth-child(even) .r-visual{order:0}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand" aria-label="PASA - Inicio">
+      <img src="assets/logo-pasa.png" alt="Logo PASA" />
+      <span><b>PASA</b><span>Panamericana Abarrotera</span></span>
+    </a>
+    <nav class="links" id="menu" aria-label="Navegación principal">
+      <a href="index.html">Inicio</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="productos.html">Productos</a>
+      <a href="recetas.html">Recetas</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn" href="productos.html">Ver productos</a>
+      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== PAGE HERO ===== -->
+<section class="page-hero berry">
+  <img class="deco" src="assets/ing-frambuesa.png" alt="" aria-hidden="true" style="width:140px;top:22%;right:7%" />
+  <img class="deco" src="assets/ing-jamaica.png" alt="" aria-hidden="true" style="width:115px;bottom:16%;right:25%;opacity:.9" />
+  <div class="wrap">
+    <span class="crumbs">Inicio / Recetas</span>
+    <h1>Sabemos de cocina</h1>
+    <p class="lead">Ideas para sacarle todo el sabor a nuestros productos: de la repostería al asador. Síguenos en Instagram <strong>@sabemosdecocina</strong> para más inspiración.</p>
+  </div>
+</section>
+<svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0,30 C240,60 480,0 720,20 C960,40 1200,10 1440,30 L1440,0 L0,0 Z" fill="#B3186B"></path></svg>
+
+<!-- ===== RECETAS ===== -->
+<section class="recipes">
+  <span class="blob amarillo" style="width:380px;height:380px;top:5%;left:-140px"></span>
+  <span class="blob azul" style="width:340px;height:340px;bottom:8%;right:-120px"></span>
+  <div class="wrap">
+
+    <div class="recipe reveal">
+      <div class="r-visual">
+        <img class="main" src="assets/scene-helado-vainilla.png" alt="Helado con vainilla, caramelo y flor de vainilla" loading="lazy" />
+        <img class="prod" src="assets/p-vainilla-posa.png" alt="" aria-hidden="true" />
+      </div>
+      <div class="r-copy">
+        <span class="num">01 · REPOSTERÍA</span>
+        <h2>Postres con alma de <span class="gtext-sol">vainilla</span></h2>
+        <p>Nuestra vainilla convierte helados, flanes, pasteles y galletas en experiencias inolvidables. Una cucharadita basta para llenar tu cocina de aroma.</p>
+        <ul class="tips">
+          <li>Agrégala al final del batido para conservar todo el aroma.</li>
+          <li>Prueba unas gotas en tu café o licuado matutino.</li>
+          <li>Para repostería fina, usa POSA, nuestra línea de vainilla natural.</li>
+        </ul>
+        <a class="prod-link" href="productos.html">Ver vainillas →</a>
+      </div>
+    </div>
+
+    <div class="recipe reveal">
+      <div class="r-visual">
+        <img class="main" src="assets/scene-arroz-soya.png" alt="Arroz, pollo teriyaki y platillos asiáticos" loading="lazy" />
+        <img class="prod" src="assets/p-soya-natural.png" alt="" aria-hidden="true" />
+      </div>
+      <div class="r-copy">
+        <span class="num">02 · COCINA ASIÁTICA</span>
+        <h2>El toque <span class="gtext">umami</span> perfecto</h2>
+        <p>Arroz frito, ramen casero, pollo teriyaki o unas alitas orientales: nuestra soya es la base del sabor. Y si te gusta el picor, la versión habanero es tu nueva favorita.</p>
+        <ul class="tips">
+          <li>Marina pollo o res 30 minutos en soya + ajo + jengibre.</li>
+          <li>La versión light tiene el mismo sabor con menos sodio.</li>
+          <li>Mezcla soya + aderezo de mango para un glaseado agridulce.</li>
+        </ul>
+        <a class="prod-link" href="productos.html">Ver soyas →</a>
+      </div>
+    </div>
+
+    <div class="recipe reveal">
+      <div class="r-visual">
+        <img class="main" src="assets/scene-carne.png" alt="Corte de carne asada en tabla" loading="lazy" />
+        <img class="prod" src="assets/p-salsas-negras.png" alt="" aria-hidden="true" />
+      </div>
+      <div class="r-copy">
+        <span class="num">03 · CARNES &amp; ASADOS</span>
+        <h2>Asados con <span class="gtext">carácter</span></h2>
+        <p>Las salsas negras PASA son el secreto de los parrilleros: profundidad, color y ese sabor que hace que todos pregunten "¿qué le pusiste?".</p>
+        <ul class="tips">
+          <li>Unta salsas negras sobre el corte 15 minutos antes de asar.</li>
+          <li>Unas gotas de jugo sazonador levantan cualquier caldo.</li>
+          <li>La salsa inglesa es infaltable en micheladas y botanas.</li>
+        </ul>
+        <a class="prod-link" href="productos.html">Ver sazonadores →</a>
+      </div>
+    </div>
+
+    <div class="recipe reveal">
+      <div class="r-visual">
+        <img class="main" src="assets/scene-helado-choco.png" alt="Ensalada y postres con aderezos gourmet" loading="lazy" />
+        <img class="prod" src="assets/p-ad-mango.png" alt="" aria-hidden="true" />
+      </div>
+      <div class="r-copy">
+        <span class="num">04 · ENSALADAS GOURMET</span>
+        <h2>Aderezos que <span class="gtext">enamoran</span></h2>
+        <p>Mango, frambuesa-jamaica, césar a la parmesana o vinagreta de finas hierbas: nuestros aderezos gourmet convierten cualquier ensalada en el plato estrella.</p>
+        <ul class="tips">
+          <li>El de mango también funciona como glaseado para salmón.</li>
+          <li>Frambuesa-jamaica + queso de cabra + nuez = combinación ganadora.</li>
+          <li>Úsalos para marinar pollo antes de la parrilla.</li>
+        </ul>
+        <a class="prod-link" href="productos.html">Ver aderezos →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="band">
+  <div class="wrap">
+    <h2 class="reveal">Más recetas cada semana</h2>
+    <p class="reveal">Síguenos en Instagram y descubre nuevas formas de darle sabor a tu cocina.</p>
+    <a class="btn sol reveal" href="https://instagram.com/sabemosdecocina" target="_blank" rel="noopener">Seguir @sabemosdecocina</a>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><img src="assets/logo-pasa.png" alt="Logo PASA" /><b>PASA</b></div>
+        <p>Panamericana Abarrotera, S.A. de C.V. Empresa líder en vainillas, soyas, salsas y aderezos. Desde 1985, hecho en México con calidad de exportación.</p>
+        <div class="socials">
+          <a href="https://wa.me/523328724779" target="_blank" rel="noopener" aria-label="WhatsApp"><img src="assets/icon-whatsapp.png" alt="" /></a>
+          <a href="https://instagram.com/sabemosdecocina" target="_blank" rel="noopener" aria-label="Instagram"><img src="assets/icon-instagram.png" alt="" /></a>
+          <a href="#" aria-label="Facebook"><img src="assets/icon-facebook.png" alt="" /></a>
+          <a href="#" aria-label="LinkedIn"><img src="assets/icon-linkedin.png" alt="" /></a>
+        </div>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="productos.html">Productos</a>
+          <a href="recetas.html">Recetas</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <div>
+        <h4>Productos</h4>
+        <a href="productos.html">Vainillas</a>
+        <a href="productos.html">Soyas</a>
+        <a href="productos.html">Sazonadores</a>
+        <a href="productos.html">Aderezos</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span data-year></span> PASA — Panamericana Abarrotera, S.A. de C.V.</span>
+      <span>Guadalajara, Jalisco · México</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

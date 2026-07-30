@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PASA — Vainillas, Soyas, Salsas y Aderezos | Desde 1985</title>
+<meta name="description" content="PASA (Panamericana Abarrotera). Empresa líder en vainillas, soyas, sazonadores y aderezos gourmet, hechos en México con calidad premium, inclusive Kosher. Desde 1985." />
+<meta name="theme-color" content="#E8261C" />
+<meta property="og:title" content="PASA — El sabor que México le dio al mundo" />
+<meta property="og:description" content="Vainillas, soyas, sazonadores y aderezos gourmet. Calidad premium, inclusive Kosher. Desde 1985." />
+<meta property="og:image" content="assets/hero-bottles.png" />
+<link rel="icon" type="image/png" href="assets/logo-pasa.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  /* ===== HERO HOME ===== */
+  .hero{
+    position:relative;color:#fff;overflow:hidden;
+    background:
+      radial-gradient(90% 70% at 15% 10%, rgba(255,196,0,.35) 0%, transparent 55%),
+      radial-gradient(110% 90% at 110% 100%, rgba(31,58,147,.55) 0%, transparent 55%),
+      radial-gradient(130% 110% at 80% -20%, var(--rojo-hot) 0%, var(--rojo) 45%, var(--rojo-deep) 100%);
+    padding:calc(104px + 3vw) 0 clamp(56px,7vw,110px);
+  }
+  .hero::after{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='52' height='52'%3E%3Ccircle cx='26' cy='26' r='.8' fill='%23ffffff' fill-opacity='.12'/%3E%3C/svg%3E");pointer-events:none}
+  .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.02fr .98fr;gap:2.5rem;align-items:center}
+  .hero h1{font-size:clamp(2.7rem,6.2vw,4.9rem);font-weight:900;color:#fff}
+  .hero h1 .gy{color:var(--amarillo)}
+  .hero h1 em{font-style:italic;font-weight:700}
+  .hero p.lead{font-size:clamp(1.05rem,1.6vw,1.25rem);color:#FFE9DC;margin:1.4rem 0 2rem;max-width:48ch}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:.9rem}
+  .hero-pills{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:2.4rem}
+  .hero-pills span{font-size:.8rem;font-weight:800;letter-spacing:.06em;padding:.5rem 1rem;border-radius:999px;background:rgba(255,255,255,.14);border:1.5px solid rgba(255,255,255,.25);backdrop-filter:blur(6px)}
+  .hero-visual{position:relative;display:grid;place-items:center;min-height:420px}
+  .hero-bottles{width:min(100%,500px);position:relative;z-index:2;filter:drop-shadow(0 44px 60px rgba(0,0,0,.5))}
+  .hero-sun{position:absolute;width:min(78%,420px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle, rgba(255,196,0,.55) 0%, rgba(255,122,0,.28) 45%, transparent 70%);z-index:1}
+  .hero-visual{padding:2.5rem 1.5rem}
+  .floater{position:absolute;z-index:3;filter:drop-shadow(0 16px 24px rgba(0,0,0,.35));pointer-events:none}
+  .floater.mango{width:110px;top:6%;left:2%}
+  .floater.frambuesa{width:100px;bottom:12%;right:2%}
+  .floater.jamaica{width:95px;bottom:4%;left:8%}
+  .floater.flor{width:92px;top:4%;right:6%}
+  .hero .wave-bottom{position:absolute;left:0;right:0;bottom:-2px;z-index:4}
+
+  /* ===== líneas / categorías ===== */
+  .lines-sec{background:var(--crema)}
+  .lines-sec .more{text-align:center;margin-top:2.8rem}
+  .bigword{font-family:"Fraunces",serif;font-weight:900;font-size:clamp(4rem,13vw,11rem);line-height:1;white-space:nowrap;color:transparent;-webkit-text-stroke:2px rgba(232,38,28,.18);user-select:none;pointer-events:none;margin-bottom:-1.2em}
+
+  .lines-sec .pc-txt h3{font-size:1.6rem}
+
+  /* ===== recetas teaser ===== */
+  .uses{background:var(--azul-deep);color:#fff;overflow:hidden}
+  .uses .sec-head h2{color:#fff}.uses .sec-head p{color:#B9C4EE}
+  .uses-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;position:relative;z-index:1}
+  .use{position:relative;border-radius:var(--r-lg);overflow:hidden;min-height:330px;display:flex;align-items:flex-end;border:2px solid rgba(255,255,255,.1);transition:.35s var(--bounce)}
+  .use:nth-child(1){background:linear-gradient(160deg,#FFC400 0%, #FF7A00 100%)}
+  .use:nth-child(2){background:linear-gradient(160deg,#FF6A5C 0%, #E8261C 100%)}
+  .use:nth-child(3){background:linear-gradient(160deg,#2E56D9 0%, #14265F 100%)}
+  .use:nth-child(4){background:linear-gradient(160deg,#FF3E6C 0%, #B3186B 100%)}
+  .use:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.4)}
+  .use img{position:absolute;inset:0;width:100%;height:62%;object-fit:contain;top:9%;filter:drop-shadow(0 22px 30px rgba(0,0,0,.4));transition:transform .4s var(--ease)}
+  .use:hover img{transform:scale(1.04)}
+  .use .cap{position:relative;z-index:2;padding:1.3rem;width:100%;background:linear-gradient(to top, rgba(0,0,0,.55), transparent)}
+  .use .cap b{font-family:"Fraunces",serif;font-size:1.2rem;display:block}
+  .use .cap span{font-size:.85rem;opacity:.85}
+
+  /* ===== retailers ===== */
+  .buy{background:var(--crema-2)}
+  .buy .panel{background:var(--papel);border-radius:var(--r-lg);padding:clamp(1.6rem,4vw,3rem);text-align:center;box-shadow:var(--shadow);border:2px solid var(--border);position:relative;z-index:1}
+  .buy .retail-img{width:min(100%,920px);margin:1.6rem auto .4rem}
+
+  @media (max-width:960px){
+    .hero-grid{grid-template-columns:1fr;text-align:center}
+    .hero p.lead{margin-inline:auto}
+    .hero-cta,.hero-pills{justify-content:center}
+    .hero-visual{order:-1;min-height:340px}
+    .uses-grid{grid-template-columns:repeat(2,1fr)}
+    .floater.mango{left:2%}.floater.frambuesa{right:2%}
+  }
+  @media (max-width:480px){
+    .uses-grid{grid-template-columns:1fr}
+    .floater{transform:scale(.75)}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand" aria-label="PASA - Inicio">
+      <img src="assets/logo-pasa.png" alt="Logo PASA" />
+      <span><b>PASA</b><span>Panamericana Abarrotera</span></span>
+    </a>
+    <nav class="links" id="menu" aria-label="Navegación principal">
+      <a href="index.html">Inicio</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="productos.html">Productos</a>
+      <a href="recetas.html">Recetas</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn" href="productos.html">Ver productos</a>
+      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="inicio">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow on-dark">Desde 1985 · Hecho en México</span>
+      <h1>El <span class="gy">sabor</span> que México le dio <em>al mundo</em></h1>
+      <p class="lead">Vainillas, soyas, sazonadores y aderezos gourmet elaborados con materias primas de la más alta calidad, inclusive Kosher. Reconocidos en toda Latinoamérica.</p>
+      <div class="hero-cta">
+        <a class="btn sol" href="productos.html">Descubrir la línea</a>
+        <a class="btn ghost" href="nosotros.html">Nuestra historia</a>
+      </div>
+      <div class="hero-pills">
+        <span>Vainillas</span><span>Soyas</span><span>Sazonadores</span><span>Aderezos</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <span class="hero-sun"></span>
+      <img class="hero-bottles" src="assets/hero-bottles.png" alt="Botellas PASA: vainilla, soya, salsas negras y aderezo de frambuesa y jamaica" fetchpriority="high" />
+      <img class="floater mango" src="assets/ing-mango.png" alt="" aria-hidden="true" />
+      <img class="floater frambuesa" src="assets/ing-frambuesa.png" alt="" aria-hidden="true" />
+      <img class="floater jamaica" src="assets/ing-jamaica.png" alt="" aria-hidden="true" />
+      <img class="floater flor" src="assets/ing-vainilla-flor.png" alt="" aria-hidden="true" />
+    </div>
+  </div>
+</section>
+
+<!-- ================= MARQUEE ================= -->
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Vainilla <i>·</i> Soya <i>·</i> Salsas Negras <i>·</i> Aderezos Gourmet <i>·</i> Desde 1985 <i>·</i> Calidad Kosher <i>·</i> Hecho en México <i>·</i></span>
+    <span>Vainilla <i>·</i> Soya <i>·</i> Salsas Negras <i>·</i> Aderezos Gourmet <i>·</i> Desde 1985 <i>·</i> Calidad Kosher <i>·</i> Hecho en México <i>·</i></span>
+  </div>
+</div>
+
+<!-- ================= LÍNEAS / CATEGORÍAS ================= -->
+<section class="lines-sec">
+  <div class="bigword" aria-hidden="true">SABOR</div>
+  <span class="blob amarillo" style="width:380px;height:380px;top:10%;right:-120px"></span>
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow center">Nuestras cuatro líneas</span>
+      <h2>Un sabor PASA para <span class="gtext">cada platillo</span></h2>
+      <p>Cuatro familias de productos, elaboradas con la misma dedicación desde 1985.</p>
+    </div>
+
+    <div class="pgrid">
+      <a class="pcard light reveal" href="productos.html#vainillas" style="--tone:#FFC400">
+        <div class="pc-media"><img class="pc-bottle" src="assets/p-vainilla-posa.png" alt="Vainilla Natural POSA" loading="lazy" /></div>
+        <div class="pc-txt">
+          <span class="pc-k">04 presentaciones</span>
+          <h3>Vainillas</h3>
+          <p>El sabor más popular del mundo, originario de México.</p>
+          <span class="pc-go">Ver línea <em>→</em></span>
+        </div>
+      </a>
+      <a class="pcard reveal" href="productos.html#soyas" style="--tone:#E8261C">
+        <div class="pc-media"><img class="pc-bottle" src="assets/p-soya-natural.png" alt="Salsa de Soya PASA" loading="lazy" /></div>
+        <div class="pc-txt">
+          <span class="pc-k">03 variedades</span>
+          <h3>Soyas</h3>
+          <p>Natural, light con 45% menos sal y picante con habanero.</p>
+          <span class="pc-go">Ver línea <em>→</em></span>
+        </div>
+      </a>
+      <a class="pcard reveal" href="productos.html#sazonadores" style="--tone:#1F3A93">
+        <div class="pc-media"><img class="pc-bottle" src="assets/p-salsas-negras.png" alt="Salsas Negras PASA" loading="lazy" /></div>
+        <div class="pc-txt">
+          <span class="pc-k">04 sazonadores</span>
+          <h3>Sazonadores</h3>
+          <p>Salsas negras, ostión, tipo inglesa y jugo sazonador.</p>
+          <span class="pc-go">Ver línea <em>→</em></span>
+        </div>
+      </a>
+      <a class="pcard reveal" href="productos.html#aderezos" style="--tone:#FF3E6C">
+        <div class="pc-media"><img class="pc-bottle" src="assets/p-ad-frambuesa.png" alt="Aderezo Frambuesa Jamaica PASA" loading="lazy" /></div>
+        <div class="pc-txt">
+          <span class="pc-k">06 aderezos</span>
+          <h3>Aderezos</h3>
+          <p>Gourmet para marinar: mango, frambuesa-jamaica y más.</p>
+          <span class="pc-go">Ver línea <em>→</em></span>
+        </div>
+      </a>
+    </div>
+
+    <div class="more reveal">
+      <a class="btn mar" href="productos.html">Ver catálogo completo →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STATS ================= -->
+<section class="stats-band">
+  <span class="blob rojo" style="width:320px;height:320px;top:-80px;left:-80px"></span>
+  <span class="blob azul" style="width:320px;height:320px;bottom:-100px;right:-60px"></span>
+  <div class="wrap grid4">
+    <div class="reveal"><div class="n" data-count="1985"></div><div class="l">Fundación · Guadalajara</div></div>
+    <div class="reveal"><div class="n" data-count="40" data-suffix="+"></div><div class="l">Años de sabor</div></div>
+    <div class="reveal"><div class="n" data-count="1600" data-suffix=" m²"></div><div class="l">Planta de producción</div></div>
+    <div class="reveal"><div class="n" data-count="14" data-suffix="+"></div><div class="l">Cadenas comerciales</div></div>
+  </div>
+</section>
+
+<!-- ================= RECETAS TEASER ================= -->
+<section class="uses">
+  <span class="blob amarillo" style="width:300px;height:300px;top:-60px;left:-70px;opacity:.25"></span>
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow center on-dark">Inspiración</span>
+      <h2>Un sabor para cada momento</h2>
+      <p>Nuestros productos transforman lo cotidiano en algo memorable.</p>
+    </div>
+    <div class="uses-grid">
+      <a class="use" href="recetas.html">
+        <img src="assets/scene-helado-vainilla.png" alt="Helado con vainilla y caramelo" loading="lazy" />
+        <div class="cap"><b>Repostería</b><span>Vainilla que enamora</span></div>
+      </a>
+      <a class="use" href="recetas.html">
+        <img src="assets/scene-soya-boat.png" alt="Salsera con salsa de soya" loading="lazy" />
+        <div class="cap"><b>Platillos asiáticos</b><span>Con salsa de soya</span></div>
+      </a>
+      <a class="use" href="recetas.html">
+        <img src="assets/scene-carne.png" alt="Carne asada con salsas negras" loading="lazy" />
+        <div class="cap"><b>Carnes &amp; asados</b><span>Con salsas negras</span></div>
+      </a>
+      <a class="use" href="recetas.html">
+        <img src="assets/scene-papas.png" alt="Botana de papas" loading="lazy" />
+        <div class="cap"><b>Botanas</b><span>El toque perfecto</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= QUIZ ================= -->
+<section class="quiz-sec" id="quiz">
+  <span class="blob amarillo" style="width:340px;height:340px;top:-80px;right:-90px;opacity:.3"></span>
+  <span class="blob rosa" style="width:300px;height:300px;bottom:-80px;left:-90px;opacity:.3"></span>
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow center on-dark">Descubre tu sabor</span>
+      <h2>¿Qué producto <span class="gtext-sol">va contigo</span>?</h2>
+      <p>Responde tres breves preguntas y te recomendamos el producto PASA ideal.</p>
+    </div>
+    <div class="quiz reveal" id="quizBox">
+      <div class="qz-bar"><i id="qzBar"></i></div>
+      <div id="qzContent"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DONDE COMPRAR ================= -->
+<section class="buy" id="comprar">
+  <span class="blob rosa" style="width:340px;height:340px;bottom:-100px;left:-110px"></span>
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow center">Dónde comprar</span>
+      <h2>Nos encuentras en <span class="gtext">toda la República</span></h2>
+      <p>Disponibles en las principales cadenas de autoservicio y farmacias de México.</p>
+    </div>
+    <div class="panel reveal">
+      <img class="retail-img" src="assets/retailers.png" alt="Cadenas donde se venden los productos PASA: City Market, La Comer, MEGA, Fresko, Bodega Aurrera, Walmart, Sam's Club, VIPS, Sumesa, Soriana, Chedraui, Farmacias del Ahorro, Casa Ley" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="band">
+  <div class="wrap">
+    <h2 class="reveal">¿Buscas maquila o marca propia?</h2>
+    <p class="reveal">Elaboramos productos alimenticios líquidos para marca propia con la misma calidad que distingue a PASA.</p>
+    <a class="btn sol reveal" href="https://wa.me/523328724779" target="_blank" rel="noopener">Hablemos por WhatsApp</a>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><img src="assets/logo-pasa.png" alt="Logo PASA" /><b>PASA</b></div>
+        <p>Panamericana Abarrotera, S.A. de C.V. Empresa líder en vainillas, soyas, salsas y aderezos. Desde 1985, hecho en México con calidad de exportación.</p>
+        <div class="socials">
+          <a href="https://wa.me/523328724779" target="_blank" rel="noopener" aria-label="WhatsApp"><img src="assets/icon-whatsapp.png" alt="" /></a>
+          <a href="https://instagram.com/sabemosdecocina" target="_blank" rel="noopener" aria-label="Instagram"><img src="assets/icon-instagram.png" alt="" /></a>
+          <a href="#" aria-label="Facebook"><img src="assets/icon-facebook.png" alt="" /></a>
+          <a href="#" aria-label="LinkedIn"><img src="assets/icon-linkedin.png" alt="" /></a>
+        </div>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="productos.html">Productos</a>
+          <a href="recetas.html">Recetas</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <div>
+        <h4>Productos</h4>
+        <a href="productos.html">Vainillas</a>
+        <a href="productos.html">Soyas</a>
+        <a href="productos.html">Sazonadores</a>
+        <a href="productos.html">Aderezos</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span data-year></span> PASA — Panamericana Abarrotera, S.A. de C.V.</span>
+      <span>Guadalajara, Jalisco · México</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="main.js"></script>
+<script>
+/* ================= QUIZ ¿QUÉ SABOR ERES? ================= */
+(function(){
+  const Q = [
+    {
+      q: '¿Cuál es tu momento favorito del día?',
+      opts: [
+        ['La hora del postre', 'vainilla'],
+        ['La comida, sin duda', 'soya'],
+        ['La carne asada del fin de semana', 'sazonador'],
+        ['Una cena fresca y ligera', 'aderezo'],
+      ]
+    },
+    {
+      q: 'Elige un plan perfecto:',
+      opts: [
+        ['Hornear en casa', 'vainilla'],
+        ['Una cena oriental', 'soya'],
+        ['Parrillada con la familia', 'sazonador'],
+        ['Un picnic gourmet', 'aderezo'],
+      ]
+    },
+    {
+      q: '¿Cómo te describen tus amigos?',
+      opts: [
+        ['Dulce y clásico', 'vainilla'],
+        ['Intenso y versátil', 'soya'],
+        ['Con mucho carácter', 'sazonador'],
+        ['Fresco y original', 'aderezo'],
+      ]
+    }
+  ];
+  const RESULT = {
+    vainilla: { name:'Vainilla PASA', img:'assets/p-vainilla-posa.png',
+      desc:'Clásico y apreciado por todos: el sabor más popular del mundo, originario de México. Ideal para la repostería.' },
+    soya: { name:'Salsa de Soya PASA', img:'assets/p-soya-natural.png',
+      desc:'Intensa y versátil: aporta umami a cada platillo, del arroz frito al marinado perfecto.' },
+    sazonador: { name:'Salsas Negras PASA', img:'assets/p-salsas-negras.png',
+      desc:'Carácter y profundidad: el secreto detrás de los mejores asados y platillos con personalidad.' },
+    aderezo: { name:'Aderezo Frambuesa & Jamaica', img:'assets/p-ad-frambuesa.png',
+      desc:'Fresco y original: convierte lo cotidiano en una experiencia gourmet con un toque distintivo.' }
+  };
+  const box = document.getElementById('qzContent');
+  const bar = document.getElementById('qzBar');
+  if (!box) return;
+  const score = { vainilla:0, soya:0, sazonador:0, aderezo:0 };
+  let step = 0;
+  const hasG = typeof gsap !== 'undefined' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function render(){
+    bar.style.width = `${(step / Q.length) * 100}%`;
+    if (step < Q.length) {
+      const { q, opts } = Q[step];
+      box.innerHTML = `
+        <span class="qz-step">Pregunta ${step+1} de ${Q.length}</span>
+        <h3>${q}</h3>
+        <div class="qz-opts">
+          ${opts.map(([label, key]) => `<button data-key="${key}">${label}</button>`).join('')}
+        </div>`;
+      box.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+        score[b.dataset.key]++;
+        step++;
+        render();
+      }));
+    } else {
+      bar.style.width = '100%';
+      const winner = Object.keys(score).sort((a,b) => score[b]-score[a])[0];
+      const r = RESULT[winner];
+      box.innerHTML = `
+        <div class="qz-result">
+          <span class="qz-step">Tu resultado</span>
+          <img src="${r.img}" alt="${r.name}" />
+          <div class="verdict">Tu producto ideal: ${r.name}</div>
+          <p>${r.desc}</p>
+          <div class="btns">
+            <a class="btn sol" href="productos.html">Ver este producto</a>
+            <button class="btn ghost" id="qzAgain">Volver a empezar</button>
+          </div>
+        </div>`;
+      document.getElementById('qzAgain').addEventListener('click', () => {
+        Object.keys(score).forEach(k => score[k] = 0);
+        step = 0;
+        render();
+      });
+    }
+    if (hasG) gsap.from(box.children, { y:22, opacity:0, duration:.5, stagger:.07, ease:'power3.out' });
+  }
+  render();
+})();
+</script>
+</body>
+</html>
