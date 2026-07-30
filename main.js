@@ -55,13 +55,32 @@
   fab.addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }));
   window.addEventListener('scroll', () => fab.classList.toggle('show', window.scrollY > 600), { passive: true });
 
-  /* ---------- Form contacto → WhatsApp ---------- */
+  /* ---------- Form contacto → correo ----------
+     Escribe abajo el correo de PASA para activar el envío.
+     Mientras esté vacío, el formulario muestra los datos de contacto. */
+  const CORREO_PASA = '';
+
   const form = document.getElementById('contactForm');
   if (form) form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const nombre = encodeURIComponent(form.nombre.value);
-    const mensaje = encodeURIComponent(form.mensaje.value);
-    window.open(`https://wa.me/523328724779?text=Hola%20PASA,%20soy%20${nombre}.%20${mensaje}`, '_blank', 'noopener');
+    const nombre = form.nombre.value.trim();
+    const correo = form.correo.value.trim();
+    const mensaje = form.mensaje.value.trim();
+
+    if (CORREO_PASA) {
+      const asunto = encodeURIComponent(`Mensaje desde el sitio web — ${nombre}`);
+      const cuerpo = encodeURIComponent(`Nombre: ${nombre}\nCorreo: ${correo}\n\n${mensaje}`);
+      window.location.href = `mailto:${CORREO_PASA}?subject=${asunto}&body=${cuerpo}`;
+      return;
+    }
+
+    const aviso = document.createElement('p');
+    aviso.setAttribute('role', 'status');
+    aviso.style.cssText = 'margin:1rem 0 0;padding:.9rem 1rem;border-radius:12px;background:var(--crema-2);border:1.5px solid var(--border);font-size:.9rem;font-weight:600;color:var(--tinta)';
+    aviso.innerHTML = `Gracias, ${nombre || 'gracias'}. Para atenderte de inmediato comunícate al <a href="tel:+523328724779" style="color:var(--rojo);font-weight:800">+52 332 872 4779</a>.`;
+    const prev = form.querySelector('[role="status"]');
+    if (prev) prev.remove();
+    form.appendChild(aviso);
   });
 
   /* ============================================================
