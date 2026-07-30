@@ -222,16 +222,26 @@ a.pcard,button.pcard,.pcard[role="button"]{cursor:pointer;text-align:left;font:i
 }
 .pcard:hover::before{transform:scale(1.16)}
 
-/* área de la botella */
+/* área de la botella — vitrina blanca sobre el color de la tarjeta */
 .pc-media{
-  position:relative;z-index:1;flex:1 1 auto;min-height:168px;
-  display:grid;place-items:center;padding:1.5rem 1.2rem .2rem;
+  position:relative;z-index:1;flex:1 1 auto;min-height:176px;
+  display:grid;place-items:center;padding:1.7rem 1.7rem 1rem;
+}
+.pc-media::before{
+  content:"";position:absolute;inset:.7rem .9rem .2rem;border-radius:var(--r);
+  background:#fff;border:1px solid rgba(70,62,48,.07);
+  box-shadow:0 12px 26px -16px rgba(70,62,48,.3);
+}
+.pc-media::after{   /* brillo cálido muy tenue dentro de la vitrina */
+  content:"";position:absolute;inset:.7rem .9rem .2rem;border-radius:var(--r);
+  background:radial-gradient(circle at 50% 40%, rgba(227,206,158,.26) 0%, transparent 62%);
 }
 .pc-bottle{
-  max-height:100%;height:auto;width:auto;max-width:70%;object-fit:contain;
-  filter:drop-shadow(0 16px 24px rgba(70,62,48,.3));transition:transform .5s var(--bounce);
+  position:relative;z-index:1;
+  max-height:100%;height:auto;width:auto;max-width:68%;object-fit:contain;
+  filter:drop-shadow(0 14px 20px rgba(70,62,48,.26));transition:transform .5s var(--bounce);
 }
-.pcard:hover .pc-bottle{transform:translateY(-7px) scale(1.05)}
+.pcard:hover .pc-bottle{transform:translateY(-6px) scale(1.04)}
 
 /* texto */
 .pc-txt{
