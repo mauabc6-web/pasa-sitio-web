@@ -1,0 +1,11 @@
+# Reglas de caché para Cloudflare Pages
+# Evita que el navegador muestre versiones viejas del sitio.
+
+# Las páginas se revalidan siempre: un cambio se ve al recargar.
+/*
+  Cache-Control: no-cache
+
+# Imágenes: caché corta mientras el sitio está en revisión.
+# Al pasar a producción se puede subir a 604800 (una semana).
+/assets/*
+  Cache-Control: public, max-age=300, must-revalidate
