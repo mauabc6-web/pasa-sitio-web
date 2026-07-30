@@ -180,7 +180,8 @@ footer.site a:hover{color:var(--acento);transform:translateX(4px)}
 .socials a{width:44px;height:44px;border:1.5px solid rgba(70,62,48,.18);border-radius:14px;display:grid;place-items:center;transition:.3s var(--bounce);padding:0}
 .socials a:hover{background:var(--arcilla);border-color:var(--arcilla);transform:translateY(-3px)}
 .socials img{width:19px;height:19px;opacity:.6}
-.socials a:hover img{opacity:1}
+.socials svg{width:19px;height:19px;fill:var(--tinta-2);opacity:.6}
+.socials a:hover img,.socials a:hover svg{opacity:1}
 .foot-bottom{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding-top:1.5rem;font-size:.8rem;color:var(--muted);position:relative;z-index:1}
 
 /* ============ CTA BAND ============ */
