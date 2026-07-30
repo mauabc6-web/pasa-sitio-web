@@ -272,11 +272,6 @@ body.gsap-on .reveal{transform:none}  /* GSAP toma control */
 .cinfo span{color:var(--muted);font-size:.9rem}
 .contact-card{background:var(--papel);border-radius:var(--r-lg);padding:clamp(1.6rem,3vw,2.4rem);box-shadow:var(--shadow-lg);border:2px solid var(--border);position:relative;overflow:hidden}
 .contact-card::before{content:"";position:absolute;inset:0 0 auto 0;height:6px;background:var(--grad-fuego)}
-.field{margin-bottom:1.15rem}
-.field label{display:block;font-weight:800;font-size:.85rem;margin-bottom:.4rem;color:var(--tinta)}
-.field input,.field textarea{width:100%;font-family:inherit;font-size:1rem;padding:.85rem 1.05rem;border:2px solid var(--border);border-radius:14px;background:var(--crema);color:var(--tinta);transition:.25s}
-.field input:focus,.field textarea:focus{outline:none;border-color:var(--amarillo);box-shadow:0 0 0 4px rgba(255,196,0,.25);background:#fff}
-.field textarea{resize:vertical;min-height:130px}
 
 /* ============ SCROLL PROGRESS ============ */
 #scrollbar-progress{position:fixed;top:0;left:0;height:5px;width:100%;z-index:200;transform-origin:left;transform:scaleX(0);background:var(--grad-fuego);pointer-events:none}

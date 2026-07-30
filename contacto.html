@@ -21,6 +21,19 @@
   .maquila h3{color:var(--amarillo);font-size:1.35rem;margin-bottom:.5rem;position:relative;z-index:1}
   .maquila p{color:#E8D9C4;font-size:.97rem;margin:0 0 1.2rem;position:relative;z-index:1;max-width:none}
   .maquila .btn{position:relative;z-index:1}
+
+  /* tarjeta de teléfono */
+  .call-card{text-align:center;display:flex;flex-direction:column;align-items:center}
+  .call-card h3{font-size:clamp(1.7rem,3.4vw,2.2rem);margin:.7rem 0 .6rem}
+  .call-card > p{color:var(--muted);font-size:.98rem;margin:0 0 1.6rem;max-width:34ch}
+  .call-card .phone{
+    display:inline-flex;align-items:center;gap:.7rem;margin-bottom:1.4rem;
+    font-family:"Fraunces",serif;font-weight:900;font-size:clamp(1.5rem,3.4vw,2rem);
+    color:var(--tinta);letter-spacing:-.01em;transition:color .25s
+  }
+  .call-card .phone svg{width:26px;height:26px;flex:none;fill:none;stroke:var(--verde);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .call-card .phone:hover{color:var(--rojo)}
+  .call-card .loc{font-size:.84rem;color:var(--muted);margin:1.3rem 0 0;line-height:1.5}
 </style>
 </head>
 <body>
@@ -87,13 +100,17 @@
         <a class="btn sol" href="tel:+523328724779">Llamar para cotizar</a>
       </div>
     </div>
-    <form class="contact-card reveal" id="contactForm">
-      <div class="field"><label for="nombre">Nombre</label><input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required /></div>
-      <div class="field"><label for="correo">Correo electrónico</label><input id="correo" name="correo" type="email" placeholder="tu@correo.com" required /></div>
-      <div class="field"><label for="mensaje">Mensaje</label><textarea id="mensaje" name="mensaje" placeholder="¿Cómo podemos ayudarte?" required></textarea></div>
-      <button class="btn" type="submit" style="width:100%;justify-content:center">Enviar mensaje</button>
-      <p style="font-size:.82rem;color:var(--muted);text-align:center;margin:.9rem 0 0">También puedes comunicarte directamente al +52 332 872 4779.</p>
-    </form>
+    <div class="contact-card call-card reveal">
+      <span class="eyebrow">Atención directa</span>
+      <h3>Llámanos</h3>
+      <p>Con gusto te atendemos para pedidos, distribución, maquila o cualquier duda sobre nuestros productos.</p>
+      <a class="phone" href="tel:+523328724779">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.9.36 1.78.7 2.62a2 2 0 0 1-.45 2.11L8.1 9.6a16 16 0 0 0 6 6l1.15-1.15a2 2 0 0 1 2.11-.45c.84.34 1.72.57 2.62.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>+52 332 872 4779</span>
+      </a>
+      <a class="btn" href="tel:+523328724779" style="width:100%;justify-content:center">Llamar ahora</a>
+      <p class="loc">Panamericana Abarrotera, S.A. de C.V.<br />Guadalajara, Jalisco, México</p>
+    </div>
   </div>
 </section>
 
