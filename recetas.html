@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=3" />
+<link rel="stylesheet" href="styles.css?v=5" />
 <style>
   .recipes{background:var(--crema)}
   .recipe{
@@ -19,22 +19,22 @@
   .recipe:last-child{margin-bottom:0}
   .recipe:nth-child(even) .r-visual{order:2}
   .r-visual{position:relative;border-radius:var(--r-lg);min-height:340px;display:grid;place-items:center;overflow:hidden}
-  .recipe:nth-child(1) .r-visual{background:linear-gradient(140deg,#FCEDCB,var(--mantequilla))}
-  .recipe:nth-child(2) .r-visual{background:linear-gradient(140deg,#FBDFD0,var(--durazno))}
-  .recipe:nth-child(3) .r-visual{background:linear-gradient(140deg,#DEE9F3,var(--cielo))}
-  .recipe:nth-child(4) .r-visual{background:linear-gradient(140deg,#F9DDE3,var(--rosa))}
-  .r-visual img.main{width:78%;position:relative;z-index:2;filter:drop-shadow(0 20px 28px rgba(90,68,54,.28));transition:transform .4s var(--ease)}
+  .recipe:nth-child(1) .r-visual{background:linear-gradient(140deg,#F0E3C4,var(--trigo))}
+  .recipe:nth-child(2) .r-visual{background:linear-gradient(140deg,#E7CBB8,var(--arcilla))}
+  .recipe:nth-child(3) .r-visual{background:linear-gradient(140deg,#D6DFE1,var(--niebla))}
+  .recipe:nth-child(4) .r-visual{background:linear-gradient(140deg,#E5CFCB,var(--rosa-seca))}
+  .r-visual img.main{width:78%;position:relative;z-index:2;filter:drop-shadow(0 20px 28px rgba(70,62,48,.28));transition:transform .4s var(--ease)}
   .recipe:hover .r-visual img.main{transform:scale(1.03)}
-  .r-visual .prod{position:absolute;z-index:3;width:88px;bottom:8%;right:7%;filter:drop-shadow(0 12px 18px rgba(90,68,54,.3))}
-  .r-visual::after{content:"";position:absolute;width:150%;aspect-ratio:1;border-radius:50%;border:2px dashed rgba(90,68,54,.12)}
+  .r-visual .prod{position:absolute;z-index:3;width:88px;bottom:8%;right:7%;filter:drop-shadow(0 12px 18px rgba(70,62,48,.3))}
+  .r-visual::after{content:"";position:absolute;width:150%;aspect-ratio:1;border-radius:50%;border:2px dashed rgba(70,62,48,.12)}
   .r-copy .num{font-family:"Fraunces",serif;font-weight:900;font-size:1rem;letter-spacing:.2em;color:var(--acento)}
   .r-copy h2{font-size:clamp(1.7rem,3.4vw,2.5rem);margin:.5rem 0 .9rem}
   .r-copy p{color:var(--muted);font-size:1.04rem}
   .r-copy .tips{margin-top:1.2rem;display:grid;gap:.55rem}
   .r-copy .tips li{display:flex;gap:.7rem;align-items:flex-start;font-size:.98rem;color:var(--tinta-2)}
   .r-copy .tips li::before{content:"✦";color:var(--acento-3);font-size:1rem;line-height:1.5}
-  .r-copy .prod-link{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.3rem;font-weight:800;color:var(--acento);border-bottom:2px solid var(--durazno);padding-bottom:2px;transition:.25s}
-  .r-copy .prod-link:hover{gap:.9rem;color:#8E4531}
+  .r-copy .prod-link{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.3rem;font-weight:800;color:var(--acento);border-bottom:2px solid var(--arcilla);padding-bottom:2px;transition:.25s}
+  .r-copy .prod-link:hover{gap:.9rem;color:#7E4630}
   @media (max-width:860px){
     .recipe{grid-template-columns:1fr}
     .recipe:nth-child(even) .r-visual{order:0}
@@ -73,12 +73,12 @@
     <p class="lead">Ideas para sacarle todo el sabor a nuestros productos: de la repostería al asador. Síguenos en Instagram <strong>@sabemosdecocina</strong> para más inspiración.</p>
   </div>
 </section>
-<svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0,30 C240,60 480,0 720,20 C960,40 1200,10 1440,30 L1440,0 L0,0 Z" fill="#E8AFBE"></path></svg>
+<svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0,30 C240,60 480,0 720,20 C960,40 1200,10 1440,30 L1440,0 L0,0 Z" fill="#BE9089"></path></svg>
 
 <!-- ===== RECETAS ===== -->
 <section class="recipes">
-  <span class="blob amarillo" style="width:380px;height:380px;top:5%;left:-140px"></span>
-  <span class="blob azul" style="width:340px;height:340px;bottom:8%;right:-120px"></span>
+  <span class="blob trigo" style="width:380px;height:380px;top:5%;left:-140px"></span>
+  <span class="blob niebla" style="width:340px;height:340px;bottom:8%;right:-120px"></span>
   <div class="wrap">
 
     <div class="recipe reveal">
@@ -201,6 +201,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="main.js?v=3"></script>
+<script src="main.js?v=5"></script>
 </body>
 </html>

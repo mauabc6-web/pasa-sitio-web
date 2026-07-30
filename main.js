@@ -96,20 +96,15 @@
     /* Hero: entrada sutil con estado final explícito */
     const heroBottles = document.querySelector('.hero-bottles');
     if (heroBottles) {
-      const piezas = [...document.querySelectorAll('.hero-copy > *'), heroBottles, ...document.querySelectorAll('.floater')];
-      gsap.timeline({ defaults: { ease: 'power3.out' } })
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
         .fromTo('.hero-copy > *', { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: .7, stagger: .08 })
         .fromTo(heroBottles, { y: 34, opacity: 0 }, { y: 0, opacity: 1, duration: .8 }, '-=.5')
         .fromTo('.floater', { opacity: 0 }, { opacity: 1, duration: .6, stagger: .08 }, '-=.5');
-      /* Red de seguridad: si rAF está pausado (pestaña de fondo) o algo falla,
-         el hero se muestra igual en lugar de quedarse invisible. */
-      setTimeout(() => {
-        piezas.forEach(el => {
-          if (parseFloat(getComputedStyle(el).opacity) < .95) {
-            gsap.set(el, { opacity: 1, y: 0, clearProps: 'transform' });
-          }
-        });
-      }, 2200);
+      /* Red de seguridad: si los frames se pausan (pestaña en segundo plano,
+         batería baja) la animación se adelanta a su estado final en lugar de
+         dejar el hero invisible. Adelantar la línea de tiempo evita que el
+         propio tween vuelva a ocultar los elementos. */
+      setTimeout(() => { if (tl.progress() < 1) tl.progress(1); }, 2000);
     }
 
   } else {
