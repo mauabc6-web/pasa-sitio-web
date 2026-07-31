@@ -257,16 +257,14 @@ a.pcard,button.pcard,.pcard[role="button"]{cursor:pointer;text-align:left;font:i
 .pcard:hover .pc-go em{transform:translateX(5px)}
 
 /* chips de presentación */
-.pc-sizes{display:flex;flex-wrap:wrap;gap:.32rem;margin:0 0 .7rem}
-.pc-sizes button{
-  font-family:inherit;font-size:.7rem;font-weight:800;cursor:pointer;color:var(--tinta);
-  background:rgba(255,255,255,.72);border:1.5px solid rgba(70,62,48,.16);
-  padding:.26rem .58rem;border-radius:8px;transition:.22s var(--ease);
+/* presentaciones: etiquetas informativas, no son botones */
+.pc-sizes{display:flex;flex-wrap:wrap;gap:.32rem;margin:0 0 1rem}
+.pc-sizes span{
+  font-size:.7rem;font-weight:800;color:var(--tinta-2);
+  background:rgba(255,255,255,.6);border:1.5px solid rgba(70,62,48,.12);
+  padding:.26rem .58rem;border-radius:8px;
 }
-.pc-sizes button:hover{transform:translateY(-2px);background:#fff}
-.pc-sizes button.sel{background:var(--tinta);border-color:var(--tinta);color:#fff}
-.pc-pick{font-size:.73rem;font-weight:700;color:var(--tinta-2);margin:0 0 .85rem;min-height:1.1em}
-.pc-pick b{font-weight:900;color:var(--tinta)}
+.pc-sizes span.mas{background:none;border-color:transparent;color:var(--muted);font-weight:700}
 
 /* ============ REVEAL ============ */
 .reveal{opacity:0;transform:translateY(28px)}
