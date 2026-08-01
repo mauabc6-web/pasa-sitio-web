@@ -23,7 +23,7 @@ rm -f "$STAGE"/cotizacion-*.html
 echo "→ Verificando…"
 FALTAN=0
 for f in "$STAGE"/*.html; do
-  for a in $(grep -oE 'assets/[a-zA-Z0-9._-]+\.(png|jpg|svg)' "$f" | sort -u); do
+  for a in $(grep -oE 'assets/[a-zA-Z0-9._-]+\.(png|jpg|svg|webp)' "$f" | sort -u); do
     [ -f "$STAGE/$a" ] || { echo "   ⚠️  falta $a (en $(basename "$f"))"; FALTAN=1; }
   done
 done

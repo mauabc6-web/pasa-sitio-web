@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=21" />
+<link rel="stylesheet" href="styles.css?v=22" />
 <style>
   /* ====== sub-nav sticky de categorías ====== */
   .catnav{position:sticky;top:var(--navh);z-index:80;background:rgba(250,247,240,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1.5px solid var(--border)}
@@ -96,6 +96,15 @@
   .ficha-linea b{display:block;font-size:1rem;color:var(--tinta);line-height:1.3}
   .ficha-linea span{display:block;font-size:.87rem;color:var(--muted);margin-top:.15rem}
   .ficha-linea .btn{flex:none;padding:.7rem 1.4rem;font-size:.9rem}
+  .ficha-mail{display:inline-block;margin-top:.4rem;font-size:.83rem;font-weight:800;color:var(--acento);border-bottom:1.5px solid var(--arcilla);padding-bottom:1px}
+  .ficha-mail:hover{color:#7E4630}
+  .ficha-aviso{
+    position:fixed;left:50%;bottom:1.6rem;transform:translate(-50%,14px);z-index:400;
+    background:var(--tinta);color:#fff;font-weight:700;font-size:.9rem;
+    padding:.75rem 1.3rem;border-radius:999px;box-shadow:var(--shadow-lg);
+    opacity:0;pointer-events:none;transition:.3s var(--ease);
+  }
+  .ficha-aviso.ver{opacity:1;transform:translate(-50%,0)}
   @media (max-width:640px){
     .ficha-linea{flex-direction:column;text-align:center;gap:.8rem}
     .ficha-linea .btn{width:100%;justify-content:center}
@@ -129,8 +138,8 @@
 
 <!-- ===== PAGE HERO ===== -->
 <section class="page-hero sol">
-  <img class="deco" src="assets/p-vainilla-natural.png" alt="" aria-hidden="true" style="width:120px;top:20%;right:7%;transform:rotate(8deg)" />
-  <img class="deco" src="assets/ing-mango.png" alt="" aria-hidden="true" style="width:140px;bottom:16%;right:22%" />
+  <img class="deco" src="assets/p-vainilla-natural.webp" alt="" aria-hidden="true" style="width:120px;top:20%;right:7%;transform:rotate(8deg)" />
+  <img class="deco" src="assets/ing-mango.webp" alt="" aria-hidden="true" style="width:140px;bottom:16%;right:22%" />
   <div class="wrap">
     <span class="crumbs">Inicio / Productos</span>
     <h1>Nuestra línea completa</h1>
@@ -164,7 +173,7 @@
     <div class="pgrid" data-cat="vainillas"></div>
     <div class="ficha-linea reveal">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8M10 9H8"/></svg>
-      <p><b>Fichas técnicas de vainillas</b><span>Ingredientes, tabla nutrimental, presentaciones, códigos de barras y certificaciones.</span></p>
+      <p><b>Fichas técnicas de vainillas</b><span>Ingredientes, tabla nutrimental, presentaciones, códigos de barras y certificaciones.</span><a class="ficha-mail" href="mailto:contactanos@pasa.com.mx">contactanos@pasa.com.mx</a></p>
       <a class="btn ghost-dark" href="mailto:contactanos@pasa.com.mx?subject=Fichas%20t%C3%A9cnicas%20%E2%80%94%20Vainillas&body=Buen%20d%C3%ADa%2C%20me%20interesa%20recibir%20las%20fichas%20t%C3%A9cnicas%20de%20la%20l%C3%ADnea%20de%20vainillas%20%28saborizantes%20naturales%20de%20vainilla%29.%0A%0AProductos%20de%20inter%C3%A9s%3A%0A-%20%0A%0AEmpresa%3A%0ANombre%3A%0ATel%C3%A9fono%3A">Solicitar</a>
     </div>
   </div>
@@ -185,7 +194,7 @@
     <div class="pgrid c3" data-cat="soyas"></div>
     <div class="ficha-linea reveal">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8M10 9H8"/></svg>
-      <p><b>Fichas técnicas de soyas</b><span>Ingredientes, tabla nutrimental, presentaciones, códigos de barras y certificaciones.</span></p>
+      <p><b>Fichas técnicas de soyas</b><span>Ingredientes, tabla nutrimental, presentaciones, códigos de barras y certificaciones.</span><a class="ficha-mail" href="mailto:contactanos@pasa.com.mx">contactanos@pasa.com.mx</a></p>
       <a class="btn ghost-dark" href="mailto:contactanos@pasa.com.mx?subject=Fichas%20t%C3%A9cnicas%20%E2%80%94%20Soyas&body=Buen%20d%C3%ADa%2C%20me%20interesa%20recibir%20las%20fichas%20t%C3%A9cnicas%20de%20la%20l%C3%ADnea%20de%20soyas%20%28salsas%20de%20soya%20natural%2C%20light%20y%20con%20habanero%29.%0A%0AProductos%20de%20inter%C3%A9s%3A%0A-%20%0A%0AEmpresa%3A%0ANombre%3A%0ATel%C3%A9fono%3A">Solicitar</a>
     </div>
   </div>
@@ -206,7 +215,7 @@
     <div class="pgrid" data-cat="sazonadores"></div>
     <div class="ficha-linea reveal">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8M10 9H8"/></svg>
-      <p><b>Fichas técnicas de sazonadores</b><span>Ingredientes, tabla nutrimental, presentaciones, códigos de barras y certificaciones.</span></p>
+      <p><b>Fichas técnicas de sazonadores</b><span>Ingredientes, tabla nutrimental, presentaciones, códigos de barras y certificaciones.</span><a class="ficha-mail" href="mailto:contactanos@pasa.com.mx">contactanos@pasa.com.mx</a></p>
       <a class="btn ghost-dark" href="mailto:contactanos@pasa.com.mx?subject=Fichas%20t%C3%A9cnicas%20%E2%80%94%20Sazonadores&body=Buen%20d%C3%ADa%2C%20me%20interesa%20recibir%20las%20fichas%20t%C3%A9cnicas%20de%20la%20l%C3%ADnea%20de%20sazonadores%20%28salsas%20negras%2C%20osti%C3%B3n%2C%20tipo%20inglesa%20y%20jugo%20sazonador%29.%0A%0AProductos%20de%20inter%C3%A9s%3A%0A-%20%0A%0AEmpresa%3A%0ANombre%3A%0ATel%C3%A9fono%3A">Solicitar</a>
     </div>
   </div>
@@ -227,7 +236,7 @@
     <div class="pgrid c3" data-cat="aderezos"></div>
     <div class="ficha-linea reveal">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8M10 9H8"/></svg>
-      <p><b>Fichas técnicas de aderezos</b><span>Ingredientes, tabla nutrimental, presentaciones, códigos de barras y certificaciones.</span></p>
+      <p><b>Fichas técnicas de aderezos</b><span>Ingredientes, tabla nutrimental, presentaciones, códigos de barras y certificaciones.</span><a class="ficha-mail" href="mailto:contactanos@pasa.com.mx">contactanos@pasa.com.mx</a></p>
       <a class="btn ghost-dark" href="mailto:contactanos@pasa.com.mx?subject=Fichas%20t%C3%A9cnicas%20%E2%80%94%20Aderezos&body=Buen%20d%C3%ADa%2C%20me%20interesa%20recibir%20las%20fichas%20t%C3%A9cnicas%20de%20la%20l%C3%ADnea%20de%20aderezos%20%28aderezos%20gourmet%20para%20marinar%29.%0A%0AProductos%20de%20inter%C3%A9s%3A%0A-%20%0A%0AEmpresa%3A%0ANombre%3A%0ATel%C3%A9fono%3A">Solicitar</a>
     </div>
   </div>
@@ -302,7 +311,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="main.js?v=20"></script>
+<script src="main.js?v=22"></script>
 <script>
 /* =========================================================
    CATÁLOGO PASA — datos reales del sitio oficial
@@ -310,93 +319,93 @@
 const CATALOGO = [
   /* ---------- VAINILLAS ---------- */
   { cat:'vainillas', tone:'#E3CE9E', chip:'Vainilla', name:'Vainilla Natural POSA',
-    img:'assets/p-vainilla-posa.png',
+    img:'assets/p-vainilla-posa.webp',
     desc:'Nuestra línea fina de vainilla natural. El sabor más popular del mundo, originario de México, con la concentración que exige la repostería profesional.',
     sizes:['125 ml','250 ml','500 ml','1 L','3.75 L','4 L','5 L','20 L'],
     feats:['Repostería profesional y panadería','Helados, flanes y cremas','Bebidas, café y licuados'] },
   { cat:'vainillas', tone:'#E3CE9E', chip:'Vainilla', name:'Vainilla Natural Superior',
-    img:'assets/p-vainilla-superior.png',
+    img:'assets/p-vainilla-superior.webp',
     desc:'Formulación superior con mayor concentración de sabor. Disponible desde uso doméstico hasta bidón industrial de 20 litros.',
     sizes:['125 ml','250 ml','500 ml','1 L','3.75 L','4 L','5 L','20 L'],
     feats:['Uso industrial y food service','Mayor rendimiento por gota','Postres de sabor intenso'] },
   { cat:'vainillas', tone:'#E3CE9E', chip:'Vainilla', name:'Vainilla Natural',
-    img:'assets/p-vainilla-natural.png',
+    img:'assets/p-vainilla-natural.webp',
     desc:'La vainilla clásica preferida por generaciones de cocinas mexicanas. Sabor intenso y aroma inconfundible para tus postres favoritos.',
     sizes:['250 ml','500 ml'],
     feats:['Uso diario en casa','Pasteles, galletas y atoles','El clásico de la despensa'] },
   { cat:'vainillas', tone:'#E3CE9E', chip:'Vainilla', name:'Vainilla Natural TU MARCA',
-    img:'assets/p-vainilla-tumarca.png',
+    img:'assets/p-vainilla-tumarca.webp',
     desc:'Diseñamos tu propia marca de vainilla. Servicio de maquila con la calidad PASA, con tu etiqueta, tu diseño y la presentación que necesites.',
     sizes:['Marca propia','Maquila','Etiqueta a medida'],
     feats:['Marca propia para tu negocio','Laboratorio y control de calidad','Presentaciones a medida'] },
 
   /* ---------- SOYAS ---------- */
   { cat:'soyas', tone:'#D3A184', chip:'Soya', name:'Soya Natural',
-    img:'assets/p-soya-natural.png',
+    img:'assets/p-soya-natural.webp',
     desc:'Elaborada con ingredientes premium. El equilibrio perfecto de sabor salado y umami para platillos orientales, arroces y marinados.',
     sizes:['175 ml','500 ml','1 L','2 L','4 L'],
     feats:['Arroz frito, ramen y salteados','Marinar carnes y pollo','Sushi y cocina asiática'] },
   { cat:'soyas', tone:'#AFC3A6', chip:'Soya', name:'Soya Light, bajo en sodio',
-    img:'assets/p-soya-light.png',
+    img:'assets/p-soya-light.webp',
     desc:'Todo el sabor de nuestra soya con 45% menos sal. Ligera y equilibrada, sin sacrificar carácter ni profundidad.',
     sizes:['175 ml','500 ml','1 L','2 L','4 L'],
     feats:['45% menos sal','Dietas bajas en sodio','Ensaladas y verduras al vapor'] },
   { cat:'soyas', tone:'#DDBF8E', chip:'Soya', name:'Soya Picante con Habanero',
-    img:'assets/p-soya-habanero.png',
+    img:'assets/p-soya-habanero.webp',
     desc:'Sazonador de soya con el toque bravo del chile habanero. Para quienes buscan umami y picor en un solo producto.',
     sizes:['175 ml','500 ml','1 L','2 L','4 L'],
     feats:['Alitas y costillas glaseadas','Botanas y mariscos','Quien busca picor con sabor'] },
 
   /* ---------- SAZONADORES ---------- */
   { cat:'sazonadores', tone:'#AFC0C6', chip:'Sazonador', name:'Salsas Negras',
-    img:'assets/p-salsas-negras.png',
+    img:'assets/p-salsas-negras.webp',
     desc:'Ideales para cocteleras, mariscos y platillos con carácter. Profundidad de sabor y color en cada gota.',
     sizes:['175 ml','500 ml','1 L','2 L','4 L'],
     feats:['Cocteles de camarón y mariscos','Carnes y asados','Micheladas y botanas'] },
   { cat:'sazonadores', tone:'#A9C0C2', chip:'Sazonador', name:'Salsa sabor Ostión',
-    img:'assets/p-salsa-ostion.png',
+    img:'assets/p-salsa-ostion.webp',
     desc:'Dulce, salada y llena de umami. El complemento ideal para salteados, pescados, arroces y cocina asiática.',
     sizes:['175 ml','500 ml','1 L','2 L','4 L'],
     feats:['Salteados y wok','Pescados y espinacas','Arroces y fideos'] },
   { cat:'sazonadores', tone:'#C6B8A5', chip:'Sazonador', name:'Salsa tipo Inglesa',
-    img:'assets/p-salsa-inglesa.png',
+    img:'assets/p-salsa-inglesa.webp',
     desc:'Estilo Worcestershire, el clásico infaltable de la cocina mexicana para carnes, botanas, micheladas y guisos.',
     sizes:['175 ml','500 ml','1 L','2 L','4 L'],
     feats:['Cortes y carne asada','Micheladas y clamatos','Guisos y caldos'] },
   { cat:'sazonadores', tone:'#DDBF8E', chip:'Sazonador', name:'Jugo Sazonador bajo en sodio',
-    img:'assets/p-jugo-sazonador.png',
+    img:'assets/p-jugo-sazonador.webp',
     desc:'Realza el sabor de botanas, carnes y sopas con una sola gota, ahora con menor contenido de sodio.',
     sizes:['175 ml','500 ml','1 L','2 L','4 L'],
     feats:['Papas, palomitas y botanas','Sopas y consomés','Bajo en sodio'] },
 
   /* ---------- ADEREZOS ---------- */
   { cat:'aderezos', tone:'#D3A9A2', chip:'Aderezo', name:'Aderezo Frambuesa Jamaica',
-    img:'assets/p-ad-frambuesa.png',
+    img:'assets/p-ad-frambuesa.webp',
     desc:'Sazonador gourmet para marinar con un contraste dulce y floral irresistible. Perfecto en ensaladas y carnes blancas.',
     sizes:['355 ml'],
     feats:['Ensaladas con queso de cabra','Marinar pollo y cerdo','Vinagreta frutal'] },
   { cat:'aderezos', tone:'#DDBF8E', chip:'Aderezo', name:'Aderezo Mango',
-    img:'assets/p-ad-mango.png',
+    img:'assets/p-ad-mango.webp',
     desc:'El dulzor tropical del mango en un sazonador versátil para marinar, glasear y realzar ensaladas.',
     sizes:['355 ml'],
     feats:['Glaseado para salmón','Ensaladas tropicales','Marinar pollo a la parrilla'] },
   { cat:'aderezos', tone:'#D6BE94', chip:'Aderezo', name:'Aderezo Caramelizado',
-    img:'assets/p-ad-caramelizado.png',
+    img:'assets/p-ad-caramelizado.webp',
     desc:'Notas dulces de ajo y cebolla caramelizada que transforman verduras, carnes y ensaladas templadas.',
     sizes:['355 ml'],
     feats:['Verduras al horno','Ensaladas templadas','Carnes con toque dulce'] },
   { cat:'aderezos', tone:'#E3CE9E', chip:'Aderezo', name:'Aderezo César a la Parmesana',
-    img:'assets/p-ad-cesar.png',
+    img:'assets/p-ad-cesar.webp',
     desc:'Cremoso, con el toque inconfundible del queso parmesano. La ensalada césar perfecta, sin complicaciones.',
     sizes:['355 ml'],
     feats:['Ensalada césar clásica','Wraps y sándwiches','Dip para crudités'] },
   { cat:'aderezos', tone:'#C0B58F', chip:'Aderezo', name:'Aderezo Soya Limón',
-    img:'assets/p-ad-soyalimon.png',
+    img:'assets/p-ad-soyalimon.webp',
     desc:'La combinación de nuestra soya con la frescura del limón. Ideal para marinar pescados, mariscos y pollo.',
     sizes:['355 ml'],
     feats:['Aguachiles y ceviches','Marinar pescado y camarón','Ensaladas orientales'] },
   { cat:'aderezos', tone:'#AFC3A6', chip:'Aderezo', name:'Vinagreta Finas Hierbas',
-    img:'assets/p-ad-finashierbas.png',
+    img:'assets/p-ad-finashierbas.webp',
     desc:'Ligera y aromática, con la mezcla justa de hierbas finas para elevar cualquier ensalada.',
     sizes:['355 ml'],
     feats:['Ensaladas verdes','Papa y pasta fría','Marinar verduras'] },
@@ -429,6 +438,31 @@ const CATALOGO = [
         </div>
       </article>`;
     }).join('');
+  });
+
+  /* ---------- fichas técnicas: respaldo si no hay cliente de correo ---------- */
+  const CORREO = 'contactanos@pasa.com.mx';
+  const aviso = document.createElement('div');
+  aviso.className = 'ficha-aviso';
+  aviso.setAttribute('role', 'status');
+  document.body.appendChild(aviso);
+  let avisoT;
+  const mostrarAviso = txt => {
+    aviso.textContent = txt;
+    aviso.classList.add('ver');
+    clearTimeout(avisoT);
+    avisoT = setTimeout(() => aviso.classList.remove('ver'), 3800);
+  };
+  document.querySelectorAll('.ficha-linea .btn').forEach(b => {
+    b.addEventListener('click', () => {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(CORREO)
+          .then(() => mostrarAviso(`Correo copiado: ${CORREO}`))
+          .catch(() => mostrarAviso(`Escríbenos a ${CORREO}`));
+      } else {
+        mostrarAviso(`Escríbenos a ${CORREO}`);
+      }
+    });
   });
 
   /* ---------- modal detalle ---------- */
