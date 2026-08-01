@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=27" />
+<link rel="stylesheet" href="styles.css?v=29" />
 <style>
   /* ===== HERO HOME ===== */
   .hero{
@@ -24,7 +24,7 @@
       linear-gradient(155deg, #F7F1E6 0%, var(--arcilla-2) 48%, #D9AB8E 100%);
     padding:calc(var(--navh) + 42px) 0 clamp(48px,6vw,96px);
   }
-  .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.02fr .98fr;gap:2.2rem;align-items:center}
+  .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.02fr .98fr;gap:2.2rem;align-items:start}
   .hero h1{font-size:clamp(2.2rem,5.6vw,4.4rem);font-weight:900;color:var(--tinta)}
   .hero h1 .gy{background:var(--grad-texto);-webkit-background-clip:text;background-clip:text;color:transparent}
   .hero h1 em{font-style:italic;font-weight:700}
@@ -38,12 +38,12 @@
   }
   .hero-pills a:hover{background:#fff;color:var(--acento);border-color:var(--acento);transform:translateY(-2px)}
   .hero-pills a:focus-visible{outline:3px solid var(--acento);outline-offset:2px}
-  .hero-visual{position:relative;display:grid;place-items:center;min-height:0;padding:1rem}
+  .hero-visual{position:relative;display:grid;place-items:start center;min-height:0;padding:7px 0 0}
   .hero-bottles{width:min(100%,512px);position:relative;z-index:2}
   /* resplandor blanco CUADRADO: rectángulo difuminado con blur,
      sin bordes duros, se funde con el degradado del hero */
   .hero-panel{
-    position:absolute;z-index:1;inset:3% 1%;pointer-events:none;
+    position:absolute;z-index:1;inset:-9% -5% -12%;pointer-events:none;
     background:rgba(255,255,255,.94);
     border-radius:34px;
     filter:blur(26px);
