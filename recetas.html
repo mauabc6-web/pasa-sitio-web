@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=22" />
+<link rel="stylesheet" href="styles.css?v=24" />
 <style>
   .recipes{background:var(--crema)}
   .recipe{
@@ -25,11 +25,12 @@
   .recipe:nth-child(4) .r-visual{background:linear-gradient(140deg,#E5CFCB,var(--rosa-seca))}
   .r-visual img.main{width:78%;position:relative;z-index:2;filter:drop-shadow(0 20px 28px rgba(70,62,48,.28));transition:transform .4s var(--ease)}
   .recipe:hover .r-visual img.main{transform:scale(1.03)}
-  /* fotografía real: enmarcada dentro del panel, no recorte flotante */
+  /* fotografía real: máscara circular, para que flote como los recortes
+     de las demás recetas en lugar de verse como un rectángulo pegado */
   .r-visual img.main.foto{
-    width:86%;aspect-ratio:4/3;height:auto;object-fit:cover;
-    border-radius:var(--r);border:5px solid rgba(255,255,255,.85);
-    filter:none;box-shadow:0 18px 34px -14px rgba(70,62,48,.4);
+    width:clamp(210px,30vw,296px);aspect-ratio:1;height:auto;object-fit:cover;object-position:50% 48%;
+    border-radius:50%;border:6px solid rgba(255,255,255,.9);
+    filter:none;box-shadow:0 20px 36px -16px rgba(70,62,48,.42);
   }
   .r-visual .prod{position:absolute;z-index:3;width:88px;bottom:8%;right:7%;filter:drop-shadow(0 12px 18px rgba(70,62,48,.3))}
   .r-visual::after{content:"";position:absolute;width:150%;aspect-ratio:1;border-radius:50%;border:2px dashed rgba(70,62,48,.12)}
@@ -208,6 +209,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="main.js?v=22"></script>
+<script src="main.js?v=23"></script>
 </body>
 </html>
