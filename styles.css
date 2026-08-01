@@ -223,10 +223,9 @@ a.pcard,button.pcard,.pcard[role="button"]{cursor:pointer;text-align:left;font:i
 }
 .pcard:hover::before{transform:scale(1.16)}
 
-/* área de la botella — vitrina blanca sobre el color de la tarjeta */
+/* área de la botella — vitrina de altura fija: todos los marcos idénticos */
 .pc-media{
-  position:relative;z-index:1;flex:1 1 auto;min-height:176px;
-  display:grid;place-items:center;padding:1.7rem 1.7rem 1rem;
+  position:relative;z-index:1;flex:0 0 auto;height:clamp(230px,26vw,290px);
 }
 .pc-media::before{  /* vitrina suave: blanco cálido translúcido, sin bordes duros */
   content:"";position:absolute;inset:.7rem .9rem .2rem;border-radius:var(--r-lg);
@@ -237,16 +236,19 @@ a.pcard,button.pcard,.pcard[role="button"]{cursor:pointer;text-align:left;font:i
   content:"";position:absolute;inset:.7rem .9rem .2rem;border-radius:var(--r-lg);
   background:radial-gradient(circle at 50% 40%, rgba(227,206,158,.2) 0%, transparent 66%);
 }
+/* caja explícita + object-fit:contain → todas las botellas se ven del mismo alto,
+   cada una con su ancho real. Un porcentaje de alto no se resolvería aquí. */
 .pc-bottle{
-  position:relative;z-index:1;
-  max-height:100%;height:auto;width:auto;max-width:68%;object-fit:contain;
+  position:absolute;z-index:1;left:1.7rem;top:1.6rem;
+  width:calc(100% - 3.4rem);height:calc(100% - 2.8rem);
+  object-fit:contain;
   filter:drop-shadow(0 14px 20px rgba(70,62,48,.26));transition:transform .5s var(--bounce);
 }
 .pcard:hover .pc-bottle{transform:translateY(-6px) scale(1.04)}
 
 /* texto */
 .pc-txt{
-  position:relative;z-index:2;padding:1.1rem 1.3rem 1.4rem;
+  position:relative;z-index:2;flex:1 1 auto;padding:1.1rem 1.3rem 1.4rem;
   background:linear-gradient(to top, rgba(255,255,255,.7) 0%, rgba(255,255,255,.3) 68%, transparent 100%);
 }
 .pc-k{font-size:.65rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--tinta-2);opacity:.8}
@@ -391,8 +393,8 @@ body.gsap-on .reveal{transform:none}
   :root{--navh:58px;--r-lg:24px}
   .pgrid,.pgrid.c3{grid-template-columns:1fr;gap:1.1rem}
   .pcard,.pcard.tall{min-height:0}
-  .pc-media{min-height:200px;padding:1.4rem 1rem .2rem}
-  .pc-bottle{max-height:220px;max-width:60%}
+  .pc-media{height:250px}
+  .pc-bottle{left:1.4rem;top:1.4rem;width:calc(100% - 2.8rem);height:calc(100% - 2.4rem)}
   .stats-band .grid4{grid-template-columns:1fr;gap:1.6rem}
   .quiz .qz-opts{grid-template-columns:1fr}
   .foot-bottom{flex-direction:column;gap:.4rem}
