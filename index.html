@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=35" />
+<link rel="stylesheet" href="styles.css?v=36" />
 <style>
   /* ===== HERO HOME ===== */
   .hero{
@@ -40,13 +40,15 @@
   .hero-pills a:focus-visible{outline:3px solid var(--acento);outline-offset:2px}
   .hero-visual{position:relative;display:grid;place-items:start center;min-height:0;padding:7px 0 0}
   .hero-bottles{width:min(100%,546px);position:relative;z-index:2;margin-inline:auto}
-  /* resplandor blanco CUADRADO: rectángulo difuminado con blur,
-     sin bordes duros, se funde con el degradado del hero */
+  /* resplandor blanco CIRCULAR: radial-gradient que muere en transparente.
+     Sin borde ni blur → Safari iOS no puede pintarle un contorno. */
   .hero-panel{
     position:absolute;z-index:1;inset:-4px -3% -11px;pointer-events:none;
-    background:rgba(255,255,255,.94);
-    border-radius:34px;
-    filter:blur(26px);
+    background:radial-gradient(ellipse closest-side,
+      rgba(255,255,255,.97) 0%,
+      rgba(255,255,255,.94) 50%,
+      rgba(255,255,255,.62) 74%,
+      rgba(255,255,255,0) 100%);
   }
 
   /* ===== líneas / categorías ===== */
