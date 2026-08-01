@@ -227,15 +227,8 @@ a.pcard,button.pcard,.pcard[role="button"]{cursor:pointer;text-align:left;font:i
 .pc-media{
   position:relative;z-index:1;flex:0 0 auto;height:clamp(230px,26vw,290px);
 }
-.pc-media::before{  /* vitrina suave: blanco cálido translúcido, sin bordes duros */
-  content:"";position:absolute;inset:.7rem .9rem .2rem;border-radius:var(--r-lg);
-  background:rgba(255,253,249,.78);
-  box-shadow:0 8px 22px -18px rgba(70,62,48,.22);
-}
-.pc-media::after{   /* brillo cálido muy tenue dentro de la vitrina */
-  content:"";position:absolute;inset:.7rem .9rem .2rem;border-radius:var(--r-lg);
-  background:radial-gradient(circle at 50% 40%, rgba(227,206,158,.2) 0%, transparent 66%);
-}
+/* Sin vitrina: la botella va directo sobre el degradado de la tarjeta.
+   Cualquier capa blanca encima dibujaba un recuadro visible en Safari iOS. */
 /* caja explícita + object-fit:contain → todas las botellas se ven del mismo alto,
    cada una con su ancho real. Un porcentaje de alto no se resolvería aquí. */
 .pc-bottle{
