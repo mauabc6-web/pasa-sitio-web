@@ -227,8 +227,20 @@ a.pcard,button.pcard,.pcard[role="button"]{cursor:pointer;text-align:left;font:i
 .pc-media{
   position:relative;z-index:1;flex:0 0 auto;height:clamp(230px,26vw,290px);
 }
-/* Sin vitrina: la botella va directo sobre el degradado de la tarjeta.
-   Cualquier capa blanca encima dibujaba un recuadro visible en Safari iOS. */
+/* resplandor circular detrás de la botella.
+   Es un radial-gradient que muere en transparente: no tiene contorno que
+   Safari iOS pueda pintar como recuadro (el problema del panel anterior).
+   El % de alto sí resuelve aquí porque .pc-media tiene altura explícita. */
+.pc-media::before{
+  content:"";position:absolute;z-index:0;pointer-events:none;
+  left:50%;top:47%;transform:translate(-50%,-50%);
+  height:92%;aspect-ratio:1;
+  background:radial-gradient(circle closest-side,
+    rgba(255,255,255,.96) 0%,
+    rgba(255,255,255,.92) 52%,
+    rgba(255,255,255,.55) 76%,
+    rgba(255,255,255,0) 100%);
+}
 /* caja explícita + object-fit:contain → todas las botellas se ven del mismo alto,
    cada una con su ancho real. Un porcentaje de alto no se resolvería aquí. */
 .pc-bottle{
