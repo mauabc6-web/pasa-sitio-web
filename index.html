@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=29" />
+<link rel="stylesheet" href="styles.css?v=30" />
 <style>
   /* ===== HERO HOME ===== */
   .hero{
@@ -22,7 +22,7 @@
       radial-gradient(85% 70% at 12% 8%, rgba(227,206,158,.66) 0%, transparent 58%),
       radial-gradient(105% 90% at 108% 100%, rgba(175,192,198,.5) 0%, transparent 58%),
       linear-gradient(155deg, #F7F1E6 0%, var(--arcilla-2) 48%, #D9AB8E 100%);
-    padding:calc(var(--navh) + 42px) 0 clamp(48px,6vw,96px);
+    padding:calc(var(--navh) + clamp(48px,6vw,96px)) 0 clamp(48px,6vw,96px);
   }
   .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.02fr .98fr;gap:2.2rem;align-items:start}
   .hero h1{font-size:clamp(2.2rem,5.6vw,4.4rem);font-weight:900;color:var(--tinta)}
@@ -90,7 +90,7 @@
   @media (max-width:560px){
     .uses-grid{grid-template-columns:1fr}
     .use{min-height:270px}
-    .hero{padding:calc(var(--navh) + 22px) 0 40px}
+    .hero{padding:calc(var(--navh) + 40px) 0 40px}
     /* en teléfono el titular va primero, la botella después */
     .hero-visual{order:0;min-height:0;padding:1rem .6rem}
     .hero-bottles{width:min(96%,330px)}
