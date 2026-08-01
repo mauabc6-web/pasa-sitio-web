@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=36" />
+<link rel="stylesheet" href="styles.css?v=37" />
 <style>
   .recipes{background:var(--crema)}
   .recipe{
@@ -18,22 +18,18 @@
   }
   .recipe:last-child{margin-bottom:0}
   .recipe:nth-child(even) .r-visual{order:2}
-  .r-visual{position:relative;border-radius:var(--r-lg);min-height:340px;display:grid;place-items:center;overflow:hidden}
-  .recipe:nth-child(1) .r-visual{background:linear-gradient(140deg,#F0E3C4,var(--trigo))}
-  .recipe:nth-child(2) .r-visual{background:linear-gradient(140deg,#E7CBB8,var(--arcilla))}
-  .recipe:nth-child(3) .r-visual{background:linear-gradient(140deg,#D6DFE1,var(--niebla))}
-  .recipe:nth-child(4) .r-visual{background:linear-gradient(140deg,#E5CFCB,var(--rosa-seca))}
+  /* sin caja: los recortes flotan directo sobre el color de la sección */
+  .r-visual{position:relative;min-height:340px;display:grid;place-items:center}
   .r-visual img.main{width:78%;position:relative;z-index:2;transition:transform .4s var(--ease)}
   .recipe:hover .r-visual img.main{transform:scale(1.03)}
   /* fotografía real: máscara circular, para que flote como los recortes
      de las demás recetas en lugar de verse como un rectángulo pegado */
   .r-visual img.main.foto{
     width:clamp(210px,30vw,296px);aspect-ratio:1;height:auto;object-fit:cover;object-position:50% 48%;
-    border-radius:50%;border:6px solid rgba(255,255,255,.9);
-    filter:none;box-shadow:0 20px 36px -16px rgba(70,62,48,.42);
+    border-radius:50%;
+    filter:none;box-shadow:0 18px 34px -18px rgba(70,62,48,.34);
   }
   .r-visual .prod{position:absolute;z-index:3;width:88px;bottom:8%;right:7%;}
-  .r-visual::after{content:"";position:absolute;width:150%;aspect-ratio:1;border-radius:50%;border:2px dashed rgba(70,62,48,.12)}
   .r-copy .num{font-family:"Fraunces",serif;font-weight:900;font-size:1rem;letter-spacing:.2em;color:var(--acento)}
   .r-copy h2{font-size:clamp(1.7rem,3.4vw,2.5rem);margin:.5rem 0 .9rem}
   .r-copy p{color:var(--muted);font-size:1.04rem}
