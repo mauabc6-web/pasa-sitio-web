@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=26" />
+<link rel="stylesheet" href="styles.css?v=27" />
 <style>
   .recipes{background:var(--crema)}
   .recipe{
@@ -23,7 +23,7 @@
   .recipe:nth-child(2) .r-visual{background:linear-gradient(140deg,#E7CBB8,var(--arcilla))}
   .recipe:nth-child(3) .r-visual{background:linear-gradient(140deg,#D6DFE1,var(--niebla))}
   .recipe:nth-child(4) .r-visual{background:linear-gradient(140deg,#E5CFCB,var(--rosa-seca))}
-  .r-visual img.main{width:78%;position:relative;z-index:2;filter:drop-shadow(0 20px 28px rgba(70,62,48,.28));transition:transform .4s var(--ease)}
+  .r-visual img.main{width:78%;position:relative;z-index:2;transition:transform .4s var(--ease)}
   .recipe:hover .r-visual img.main{transform:scale(1.03)}
   /* fotografía real: máscara circular, para que flote como los recortes
      de las demás recetas en lugar de verse como un rectángulo pegado */
@@ -32,7 +32,7 @@
     border-radius:50%;border:6px solid rgba(255,255,255,.9);
     filter:none;box-shadow:0 20px 36px -16px rgba(70,62,48,.42);
   }
-  .r-visual .prod{position:absolute;z-index:3;width:88px;bottom:8%;right:7%;filter:drop-shadow(0 12px 18px rgba(70,62,48,.3))}
+  .r-visual .prod{position:absolute;z-index:3;width:88px;bottom:8%;right:7%;}
   .r-visual::after{content:"";position:absolute;width:150%;aspect-ratio:1;border-radius:50%;border:2px dashed rgba(70,62,48,.12)}
   .r-copy .num{font-family:"Fraunces",serif;font-weight:900;font-size:1rem;letter-spacing:.2em;color:var(--acento)}
   .r-copy h2{font-size:clamp(1.7rem,3.4vw,2.5rem);margin:.5rem 0 .9rem}
@@ -209,6 +209,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="main.js?v=26"></script>
+<script src="main.js?v=27"></script>
 </body>
 </html>
