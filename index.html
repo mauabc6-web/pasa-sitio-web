@@ -8,12 +8,12 @@
 <meta name="theme-color" content="#E3CE9E" />
 <meta property="og:title" content="PASA — El sabor que México le dio al mundo" />
 <meta property="og:description" content="Vainillas, soyas, sazonadores y aderezos gourmet. Calidad premium, inclusive Kosher. Desde 1985." />
-<meta property="og:image" content="assets/hero-bottles.webp" />
+<meta property="og:image" content="assets/hero-bottles.webp?r=2" />
 <link rel="icon" type="image/png" href="assets/logo-pasa.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=30" />
+<link rel="stylesheet" href="styles.css?v=31" />
 <style>
   /* ===== HERO HOME ===== */
   .hero{
@@ -39,11 +39,11 @@
   .hero-pills a:hover{background:#fff;color:var(--acento);border-color:var(--acento);transform:translateY(-2px)}
   .hero-pills a:focus-visible{outline:3px solid var(--acento);outline-offset:2px}
   .hero-visual{position:relative;display:grid;place-items:start center;min-height:0;padding:7px 0 0}
-  .hero-bottles{width:min(100%,512px);position:relative;z-index:2}
+  .hero-bottles{width:min(100%,546px);position:relative;z-index:2;margin-inline:auto}
   /* resplandor blanco CUADRADO: rectángulo difuminado con blur,
      sin bordes duros, se funde con el degradado del hero */
   .hero-panel{
-    position:absolute;z-index:1;inset:-9% -5% -12%;pointer-events:none;
+    position:absolute;z-index:1;inset:0 -3%;pointer-events:none;
     background:rgba(255,255,255,.94);
     border-radius:34px;
     filter:blur(26px);
@@ -93,7 +93,7 @@
     .hero{padding:calc(var(--navh) + 40px) 0 40px}
     /* en teléfono el titular va primero, la botella después */
     .hero-visual{order:0;min-height:0;padding:1rem .6rem}
-    .hero-bottles{width:min(96%,330px)}
+    .hero-bottles{width:min(96%,340px)}
     .hero-pills{margin-top:1.6rem;gap:.4rem}
     .hero-pills a{font-size:.72rem;padding:.42rem .85rem}
     .hero-cta .btn{width:100%;justify-content:center}
@@ -142,7 +142,7 @@
     </div>
     <div class="hero-visual">
       <span class="hero-panel"></span>
-      <img class="hero-bottles" src="assets/hero-bottles.webp" alt="Botellas PASA: vainilla, soya, salsas negras y aderezo de frambuesa y jamaica" fetchpriority="high" />
+      <img class="hero-bottles" src="assets/hero-bottles.webp?r=2" alt="Botellas PASA: vainilla, soya, salsas negras y aderezo de frambuesa y jamaica" fetchpriority="high" />
     </div>
   </div>
 </section>
