@@ -112,4 +112,87 @@
       el.textContent = parseFloat(el.dataset.count).toLocaleString('es-MX') + (el.dataset.suffix || '');
     });
   }
+
+  /* ============================================================
+     PROFUNDIDAD 3D
+     Solo escritorio con puntero fino. En táctil no se registra
+     ningún listener, así que el móvil se queda exactamente igual.
+     ============================================================ */
+  const fino = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+  if (!reduce && fino) {
+
+    /* --- Tarjetas: inclinación según el cursor + reflejo especular ---
+       Por delegación en el documento: las tarjetas de productos.html se
+       generan por JS después de este archivo, así que engancharlas una a
+       una aquí no alcanzaría a ninguna. */
+    const MAX_X = 8, MAX_Y = 10;   // grados
+    let activa = null, pendC = null;
+
+    const reposar = () => {
+      if (!activa) return;
+      if (pendC) { cancelAnimationFrame(pendC); pendC = null; }
+      activa.classList.remove('is-tilting');
+      activa.style.transform = '';
+      activa = null;
+    };
+
+    document.addEventListener('pointermove', (e) => {
+      const card = e.target.closest && e.target.closest('.pgrid .pcard');
+      if (!card) { reposar(); return; }
+      if (card !== activa) { reposar(); activa = card; }
+
+      let glare = card.querySelector(':scope > .glare');
+      if (!glare) {
+        glare = document.createElement('span');
+        glare.className = 'glare';
+        glare.setAttribute('aria-hidden', 'true');
+        card.appendChild(glare);
+      }
+
+      const r = card.getBoundingClientRect();
+      const nx = (e.clientX - r.left) / r.width  - .5;   // -0.5 … 0.5
+      const ny = (e.clientY - r.top)  / r.height - .5;
+      if (pendC) return;
+      pendC = requestAnimationFrame(() => {
+        pendC = null;
+        card.classList.add('is-tilting');
+        card.style.transform =
+          `translateY(-7px) rotateX(${(-ny * MAX_X).toFixed(2)}deg) rotateY(${(nx * MAX_Y).toFixed(2)}deg)`;
+        glare.style.setProperty('--gx', ((nx + .5) * 100).toFixed(1) + '%');
+        glare.style.setProperty('--gy', ((ny + .5) * 100).toFixed(1) + '%');
+      });
+    }, { passive: true });
+
+    document.addEventListener('pointerleave', reposar, { passive: true });
+    window.addEventListener('scroll', reposar, { passive: true });
+
+    /* --- Hero: las botellas siguen el puntero --- */
+    const visual = document.querySelector('.hero-visual');
+    if (visual) {
+      const bottles = visual.querySelector('.hero-tilt') || visual.querySelector('.hero-bottles');
+      let pend = null, dentro = false;
+
+      window.addEventListener('pointermove', (e) => {
+        const r = visual.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > innerHeight) return;   // fuera de pantalla
+        const nx = (e.clientX - (r.left + r.width / 2)) / innerWidth;
+        const ny = (e.clientY - (r.top + r.height / 2)) / innerHeight;
+        if (pend) return;
+        pend = requestAnimationFrame(() => {
+          pend = null;
+          if (!dentro) { visual.classList.add('is-tracking'); dentro = true; }
+          bottles.style.setProperty('--px', (nx * 22).toFixed(1) + 'px');
+          bottles.style.setProperty('--py', (ny * 12).toFixed(1) + 'px');
+          bottles.style.setProperty('--ry', (nx * 7).toFixed(2) + 'deg');
+          bottles.style.setProperty('--rx', (-ny * 4).toFixed(2) + 'deg');
+        });
+      }, { passive: true });
+
+      /* al salir del documento vuelve al reposo con la transición larga */
+      document.addEventListener('pointerleave', () => {
+        visual.classList.remove('is-tracking'); dentro = false;
+        ['--px', '--py', '--ry', '--rx'].forEach(v => bottles.style.removeProperty(v));
+      }, { passive: true });
+    }
+  }
 })();

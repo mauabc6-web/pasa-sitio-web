@@ -424,3 +424,58 @@ body.gsap-on .reveal{transform:none}
 @media (min-width:1600px){
   :root{--maxw:1320px}
 }
+
+/* ============================================================
+   PROFUNDIDAD 3D
+   Solo en escritorio con puntero fino. En táctil y con
+   prefers-reduced-motion todo queda plano: el móvil no ejecuta
+   nada de esto, que es donde el render da problemas.
+   ============================================================ */
+@media (hover:hover) and (pointer:fine){
+  .pgrid{perspective:1400px;perspective-origin:50% 42%}
+
+  .pcard{
+    transform-style:preserve-3d;
+    transition:transform .5s var(--ease), box-shadow .5s var(--ease);
+  }
+  .pcard.is-tilting{transition:transform .12s linear, box-shadow .3s var(--ease)}
+
+  /* cada capa a su propia distancia → paralaje real dentro de la tarjeta */
+  .pc-media,.pc-txt{transform-style:preserve-3d}
+  /* La vitrina se queda en el plano de fondo. Con preserve-3d el orden de
+     pintado lo marca la Z, no el z-index: si la vitrina se adelanta, su
+     blanco semitransparente cubre la botella y la deja lavada. */
+  .pc-media::before,.pc-media::after{transform:translateZ(0)}
+  .pc-bottle{transform:translateZ(var(--z,20px))}
+  .pcard:hover .pc-bottle{transform:translateZ(var(--z,20px)) translateY(-6px) scale(1.04)}
+  .pgrid .pcard{--z:20px}
+  .pgrid .pcard:hover{--z:52px}
+  .pcard:hover .pc-txt{transform:translateZ(22px)}
+  .pc-txt{transition:transform .5s var(--ease)}
+
+  /* reflejo especular que sigue al cursor */
+  .pcard .glare{
+    position:absolute;inset:0;z-index:4;pointer-events:none;
+    border-radius:inherit;opacity:0;transition:opacity .35s var(--ease);
+    background:radial-gradient(circle 200px at var(--gx,50%) var(--gy,50%),
+      rgba(255,255,255,.34) 0%, rgba(255,255,255,.10) 36%, transparent 64%);
+    mix-blend-mode:soft-light;transform:translateZ(0);
+  }
+  .pcard:hover .glare{opacity:1}
+
+  /* hero: las botellas responden al puntero */
+  .hero-visual{perspective:1200px}
+  /* el 3D va en el wrapper: GSAP anima la <img> y su transform inline
+     ganaría a esta regla si compartieran elemento */
+  .hero-tilt{
+    transform:translate3d(var(--px,0px),var(--py,0px),0) rotateY(var(--ry,0deg)) rotateX(var(--rx,0deg));
+    transition:transform .45s var(--ease);
+    will-change:transform;
+  }
+  .hero-visual.is-tracking .hero-tilt{transition:transform .18s linear}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .pcard,.pc-bottle,.pc-txt,.hero-tilt{transform:none !important;transition:none !important}
+  .pcard .glare{display:none}
+}

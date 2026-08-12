@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=38" />
+<link rel="stylesheet" href="styles.css?v=42" />
 <style>
   /* ===== HERO HOME ===== */
   /* fondo sobrio: crema cálido con un velo de arena.
@@ -41,7 +41,8 @@
   .hero-pills a:hover{background:#fff;color:var(--acento);border-color:var(--acento);transform:translateY(-2px)}
   .hero-pills a:focus-visible{outline:3px solid var(--acento);outline-offset:2px}
   .hero-visual{position:relative;display:grid;place-items:center;min-height:0;padding:7px 0 0}
-  .hero-bottles{width:min(100%,556px);position:relative;z-index:2;margin-inline:auto;display:block}
+  .hero-tilt{display:block;width:min(100%,556px);margin-inline:auto;position:relative;z-index:2}
+  .hero-bottles{width:100%;display:block}
   /* la imagen ya trae su propio reflejo: sin capas extra debajo */
   .hero-panel{display:none}
 
@@ -89,7 +90,7 @@
     .hero{padding:calc(var(--navh) + 40px) 0 40px}
     /* en teléfono el titular va primero, la botella después */
     .hero-visual{order:0;min-height:0;padding:1rem .6rem}
-    .hero-bottles{width:min(96%,340px)}
+    .hero-tilt{width:min(96%,340px)}
     .hero-pills{margin-top:1.6rem;gap:.4rem}
     .hero-pills a{font-size:.72rem;padding:.42rem .85rem}
     .hero-cta .btn{width:100%;justify-content:center}
@@ -138,7 +139,7 @@
     </div>
     <div class="hero-visual">
       <span class="hero-panel"></span>
-      <img class="hero-bottles" src="assets/hero-bottles.webp?r=4" alt="Botellas PASA: vainilla, soya, salsas negras y aderezo de frambuesa y jamaica" fetchpriority="high" />
+      <span class="hero-tilt"><img class="hero-bottles" src="assets/hero-bottles.webp?r=4" alt="Botellas PASA: vainilla, soya, salsas negras y aderezo de frambuesa y jamaica" fetchpriority="high" /></span>
     </div>
   </div>
 </section>
@@ -327,7 +328,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="main.js?v=27"></script>
+<script src="main.js?v=42"></script>
 <script>
 /* ================= QUIZ ¿QUÉ SABOR ERES? ================= */
 (function(){
