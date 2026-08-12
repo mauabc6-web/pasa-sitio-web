@@ -8,23 +8,25 @@
 <meta name="theme-color" content="#E3CE9E" />
 <meta property="og:title" content="PASA — El sabor que México le dio al mundo" />
 <meta property="og:description" content="Vainillas, soyas, sazonadores y aderezos gourmet. Calidad premium, inclusive Kosher. Desde 1985." />
-<meta property="og:image" content="assets/hero-bottles.webp?r=2" />
+<meta property="og:image" content="assets/hero-bottles.webp?r=4" />
 <link rel="icon" type="image/png" href="assets/logo-pasa.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=37" />
+<link rel="stylesheet" href="styles.css?v=38" />
 <style>
   /* ===== HERO HOME ===== */
+  /* fondo sobrio: crema cálido con un velo de arena.
+     Sin terracota saturado — deja que el producto sea lo que resalta. */
   .hero{
     position:relative;color:var(--tinta);overflow:hidden;
     background:
-      radial-gradient(85% 70% at 12% 8%, rgba(227,206,158,.66) 0%, transparent 58%),
-      radial-gradient(105% 90% at 108% 100%, rgba(175,192,198,.5) 0%, transparent 58%),
-      linear-gradient(155deg, #F7F1E6 0%, var(--arcilla-2) 48%, #D9AB8E 100%);
+      radial-gradient(70% 58% at 78% 34%, rgba(255,255,255,.62) 0%, transparent 62%),
+      radial-gradient(90% 80% at 6% 0%, rgba(227,206,158,.42) 0%, transparent 60%),
+      linear-gradient(168deg, #FBF7EF 0%, #F4EDE0 52%, #EADFCB 100%);
     padding:calc(var(--navh) + clamp(48px,6vw,96px)) 0 clamp(48px,6vw,96px);
   }
-  .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.02fr .98fr;gap:2.2rem;align-items:start}
+  .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.02fr .98fr;gap:2.2rem;align-items:center}
   .hero h1{font-size:clamp(2.2rem,5.6vw,4.4rem);font-weight:900;color:var(--tinta)}
   .hero h1 .gy{background:var(--grad-texto);-webkit-background-clip:text;background-clip:text;color:transparent}
   .hero h1 em{font-style:italic;font-weight:700}
@@ -38,18 +40,10 @@
   }
   .hero-pills a:hover{background:#fff;color:var(--acento);border-color:var(--acento);transform:translateY(-2px)}
   .hero-pills a:focus-visible{outline:3px solid var(--acento);outline-offset:2px}
-  .hero-visual{position:relative;display:grid;place-items:start center;min-height:0;padding:7px 0 0}
-  .hero-bottles{width:min(100%,546px);position:relative;z-index:2;margin-inline:auto}
-  /* resplandor blanco CIRCULAR: radial-gradient que muere en transparente.
-     Sin borde ni blur → Safari iOS no puede pintarle un contorno. */
-  .hero-panel{
-    position:absolute;z-index:1;inset:-4px -3% -11px;pointer-events:none;
-    background:radial-gradient(ellipse closest-side,
-      rgba(255,255,255,.97) 0%,
-      rgba(255,255,255,.94) 50%,
-      rgba(255,255,255,.62) 74%,
-      rgba(255,255,255,0) 100%);
-  }
+  .hero-visual{position:relative;display:grid;place-items:center;min-height:0;padding:7px 0 0}
+  .hero-bottles{width:min(100%,556px);position:relative;z-index:2;margin-inline:auto;display:block}
+  /* la imagen ya trae su propio reflejo: sin capas extra debajo */
+  .hero-panel{display:none}
 
   /* ===== líneas / categorías ===== */
   .lines-sec{background:var(--crema)}
@@ -144,7 +138,7 @@
     </div>
     <div class="hero-visual">
       <span class="hero-panel"></span>
-      <img class="hero-bottles" src="assets/hero-bottles.webp?r=2" alt="Botellas PASA: vainilla, soya, salsas negras y aderezo de frambuesa y jamaica" fetchpriority="high" />
+      <img class="hero-bottles" src="assets/hero-bottles.webp?r=4" alt="Botellas PASA: vainilla, soya, salsas negras y aderezo de frambuesa y jamaica" fetchpriority="high" />
     </div>
   </div>
 </section>

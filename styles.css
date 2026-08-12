@@ -227,7 +227,20 @@ a.pcard,button.pcard,.pcard[role="button"]{cursor:pointer;text-align:left;font:i
 .pc-media{
   position:relative;z-index:1;flex:0 0 auto;height:clamp(230px,26vw,290px);
 }
-/* Sin resplandor: la botella va directo sobre el degradado de la tarjeta. */
+/* vitrina clara detrás de la botella. Los bordes se desvanecen con un
+   degradado en vez de cortar en seco: así no queda contorno duro. */
+.pc-media::before{
+  content:"";position:absolute;z-index:0;pointer-events:none;
+  inset:.7rem .9rem .2rem;border-radius:var(--r-lg);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.28) 0%, transparent 42%),
+    rgba(255,253,249,.86);
+}
+.pc-media::after{  /* brillo cálido muy tenue dentro de la vitrina */
+  content:"";position:absolute;z-index:0;pointer-events:none;
+  inset:.7rem .9rem .2rem;border-radius:var(--r-lg);
+  background:radial-gradient(circle at 50% 42%, rgba(227,206,158,.22) 0%, transparent 68%);
+}
 /* caja explícita + object-fit:contain → todas las botellas se ven del mismo alto,
    cada una con su ancho real. Un porcentaje de alto no se resolvería aquí. */
 .pc-bottle{
