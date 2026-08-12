@@ -100,8 +100,10 @@ header.nav.scrolled::before{opacity:1;border-bottom:1.5px solid var(--border)}
 .nav-inner{position:relative;display:flex;align-items:center;justify-content:space-between;gap:1rem}
 .brand{display:flex;align-items:center;gap:.7rem;min-width:0}
 .brand img{width:46px;height:46px;flex:none;filter:drop-shadow(0 4px 10px rgba(70,62,48,.2))}
-.brand b{font-family:"Fraunces",serif;font-size:1.22rem;letter-spacing:.02em;color:var(--tinta);font-weight:900;display:block;line-height:1.1}
-.brand span span{display:block;font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-top:-1px;white-space:nowrap}
+/* el nombre completo es mucho más largo que la sigla: baja de cuerpo y
+   se aprieta el tracking para que siga cabiendo en una línea */
+.brand b{font-family:"Fraunces",serif;font-size:1.04rem;letter-spacing:-.005em;color:var(--tinta);font-weight:900;display:block;line-height:1.15;white-space:nowrap}
+@media (max-width:1080px){.brand b{font-size:.94rem}}
 nav.links{display:flex;align-items:center;gap:.1rem}
 nav.links a{position:relative;font-weight:700;font-size:.94rem;color:var(--tinta);padding:.5rem .85rem;border-radius:999px;transition:.25s var(--ease);white-space:nowrap}
 nav.links a:hover{color:var(--acento);background:rgba(158,91,60,.08)}
@@ -171,7 +173,7 @@ footer.site::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;bac
 .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:2.4rem;padding-bottom:2.2rem;border-bottom:1.5px solid rgba(70,62,48,.14);position:relative;z-index:1}
 .foot-brand{display:flex;align-items:center;gap:.8rem;margin-bottom:1rem}
 .foot-brand img{width:50px;height:50px}
-.foot-brand b{font-family:"Fraunces",serif;color:var(--tinta);font-size:1.3rem;font-weight:900}
+.foot-brand b{font-family:"Fraunces",serif;color:var(--tinta);font-size:1.12rem;font-weight:900;line-height:1.2}
 footer.site p{font-size:.92rem;max-width:38ch;margin:0 0 1.2rem}
 footer.site h4{color:var(--acento);font-family:"Karla",sans-serif;font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:.76rem;margin-bottom:.9rem}
 footer.site a{color:var(--tinta-2);font-size:.93rem;display:block;padding:.3rem 0;transition:.2s;width:fit-content}
