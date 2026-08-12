@@ -44,7 +44,7 @@
   --shadow-lg:0 28px 70px -28px rgba(70,62,48,.3);
   --r:20px; --r-lg:30px;
   --maxw:1200px;
-  --navh:66px;
+  --navh:78px;
   --ease:cubic-bezier(.22,.61,.36,1);
   --bounce:cubic-bezier(.34,1.56,.64,1);
   --sec:clamp(64px,8vw,120px);
@@ -99,11 +99,11 @@ header.nav::before{content:"";position:absolute;inset:0;background:rgba(250,247,
 header.nav.scrolled::before{opacity:1;border-bottom:1.5px solid var(--border)}
 .nav-inner{position:relative;display:flex;align-items:center;justify-content:space-between;gap:1rem}
 .brand{display:flex;align-items:center;gap:.7rem;min-width:0}
-.brand img{width:46px;height:46px;flex:none;filter:drop-shadow(0 4px 10px rgba(70,62,48,.2))}
+.brand img{width:55px;height:55px;flex:none;filter:drop-shadow(0 4px 10px rgba(70,62,48,.2))}
 /* el nombre completo es mucho más largo que la sigla: baja de cuerpo y
    se aprieta el tracking para que siga cabiendo en una línea */
-.brand b{font-family:"Fraunces",serif;font-size:1.04rem;letter-spacing:-.005em;color:var(--tinta);font-weight:900;display:block;line-height:1.15;white-space:nowrap}
-@media (max-width:1080px){.brand b{font-size:.94rem}}
+.brand b{font-family:"Fraunces",serif;font-size:1.25rem;letter-spacing:-.005em;color:var(--tinta);font-weight:900;display:block;line-height:1.15;white-space:nowrap}
+@media (max-width:1080px){.brand b{font-size:1.13rem}}
 nav.links{display:flex;align-items:center;gap:.1rem}
 nav.links a{position:relative;font-weight:700;font-size:.94rem;color:var(--tinta);padding:.5rem .85rem;border-radius:999px;transition:.25s var(--ease);white-space:nowrap}
 nav.links a:hover{color:var(--acento);background:rgba(158,91,60,.08)}
@@ -386,7 +386,7 @@ body.gsap-on .reveal{transform:none}
 }
 
 @media (max-width:760px){
-  :root{--navh:62px}
+  :root{--navh:72px}
   .foot-grid{grid-template-columns:1fr;gap:1.8rem}
   .sec-head{margin-bottom:2.2rem}
   .page-hero{padding:calc(var(--navh) + 34px) 0 44px}
@@ -397,7 +397,7 @@ body.gsap-on .reveal{transform:none}
 }
 
 @media (max-width:560px){
-  :root{--navh:58px;--r-lg:24px}
+  :root{--navh:68px;--r-lg:24px}
   .pgrid,.pgrid.c3{grid-template-columns:1fr;gap:1.1rem}
   .pcard,.pcard.tall{min-height:0}
   .pc-media{height:250px}
@@ -416,7 +416,7 @@ body.gsap-on .reveal{transform:none}
 @media (max-width:400px){
   .page-hero h1{font-size:1.95rem}
   .sec-head h2{font-size:1.65rem}
-  .brand img{width:40px;height:40px}
+  .brand img{width:48px;height:48px}
   .brand b{font-size:1.08rem}
   .cinfo{padding:.85rem .9rem;gap:.8rem}
   .cinfo .ic{width:42px;height:42px}
