@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=45" />
+<link rel="stylesheet" href="styles.css?v=46" />
 <style>
   /* ===== HERO HOME ===== */
   /* fondo sobrio: crema cálido con un velo de arena.
@@ -46,18 +46,20 @@
      degrada arriba y abajo. Los 300vw desbordan por los lados y el
      overflow:hidden del hero los recorta, así que nunca hay borde lateral.
      Va bajo .hero-grid (z-index 2), así el texto queda legible encima. */
-  .hero-panel{
-    position:absolute;z-index:1;pointer-events:none;
-    left:50%;top:50%;transform:translate(-50%,-50%);
-    width:300vw;height:128%;
+  .hero-panel{display:none}
+  /* La banda cubre el hero entero de borde a borde: el bloque de texto
+     ocupa casi todo el alto, así que acotarla a la imagen dejaba el
+     titular sobre crema y el párrafo sobre blanco. Se degrada solo contra
+     el nav (arriba) y el marquee (abajo). */
+  .hero::after{
+    content:"";position:absolute;z-index:1;inset:0;pointer-events:none;
     background:linear-gradient(180deg,
-      rgba(255,255,255,0)   0%,
-      rgba(255,255,255,.55) 14%,
-      rgba(255,255,255,.94) 30%,
-      rgba(255,255,255,.99) 50%,
-      rgba(255,255,255,.94) 70%,
-      rgba(255,255,255,.55) 86%,
-      rgba(255,255,255,0)   100%);
+      rgba(255,255,255,0)  0%,
+      rgba(255,255,255,.6) 8%,
+      rgba(255,255,255,1)  17%,
+      rgba(255,255,255,1)  90%,
+      rgba(255,255,255,.6) 96%,
+      rgba(255,255,255,0)  100%);
   }
 
   /* ===== líneas / categorías ===== */
@@ -342,7 +344,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="main.js?v=45"></script>
+<script src="main.js?v=46"></script>
 <script>
 /* ================= QUIZ ¿QUÉ SABOR ERES? ================= */
 (function(){
