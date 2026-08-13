@@ -255,18 +255,19 @@ a.pcard,button.pcard,.pcard[role="button"]{cursor:pointer;text-align:left;font:i
 /* texto */
 .pc-txt{
   position:relative;z-index:2;flex:1 1 auto;padding:1.1rem 1.3rem 1.4rem;
+  display:flex;flex-direction:column;   /* para que .pc-go se ancle abajo */
   background:linear-gradient(to top, rgba(255,255,255,.7) 0%, rgba(255,255,255,.3) 68%, transparent 100%);
 }
 .pc-k{font-size:.65rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--tinta-2);opacity:.8}
-.pc-txt h3{font-size:1.32rem;margin:.3rem 0 .45rem;line-height:1.14}
-.pc-txt p{font-size:.87rem;margin:0 0 1rem;color:var(--tinta-2);line-height:1.45}
-.pc-go{display:inline-flex;align-items:center;gap:.45rem;font-weight:800;font-size:.85rem;color:var(--acento)}
+.pc-txt h3{font-size:1.32rem;margin:.3rem 0 .45rem;line-height:1.14;min-height:2.28em;display:flex;align-items:flex-start}
+.pc-txt p{font-size:.87rem;margin:0 0 1rem;color:var(--tinta-2);line-height:1.45;min-height:2.9em}
+.pc-go{margin-top:auto;display:inline-flex;align-items:center;gap:.45rem;font-weight:800;font-size:.85rem;color:var(--acento)}
 .pc-go em{font-style:normal;display:inline-block;transition:transform .3s var(--ease)}
 .pcard:hover .pc-go em{transform:translateX(5px)}
 
 /* chips de presentación */
 /* presentaciones: etiquetas informativas, no son botones */
-.pc-sizes{display:flex;flex-wrap:wrap;gap:.32rem;margin:0 0 1rem}
+.pc-sizes{display:flex;flex-wrap:wrap;gap:.32rem;margin:0 0 1rem;align-content:flex-start}
 .pc-sizes span{
   font-size:.7rem;font-weight:800;color:var(--tinta-2);
   background:rgba(255,255,255,.6);border:1.5px solid rgba(70,62,48,.12);
