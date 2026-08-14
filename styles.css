@@ -170,8 +170,12 @@ section{padding:var(--sec) 0;position:relative}
 footer.site{background:var(--crema-3);color:var(--tinta-2);padding:4rem 0 1.8rem;position:relative;overflow:hidden}
 footer.site::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:var(--grad-fuego)}
 .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:2.4rem;padding-bottom:2.2rem;border-bottom:1.5px solid rgba(70,62,48,.14);position:relative;z-index:1}
-.foot-brand{display:flex;align-items:center;gap:.8rem;margin-bottom:1rem}
-.foot-brand img{width:64px;height:64px}
+/* logo centrado sobre el texto de la marca */
+.foot-brand{display:flex;justify-content:center;margin-bottom:1.1rem}
+.foot-brand img{width:104px;height:104px}
+.foot-col-brand{text-align:center}
+.foot-col-brand p{margin-inline:auto}
+.foot-col-brand .socials{justify-content:center}
 .foot-brand b{font-family:"Fraunces",serif;color:var(--tinta);font-size:1.12rem;font-weight:900;line-height:1.2}
 footer.site p{font-size:.92rem;max-width:38ch;margin:0 0 1.2rem}
 footer.site h4{color:var(--acento);font-family:"Karla",sans-serif;font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:.76rem;margin-bottom:.9rem}
