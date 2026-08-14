@@ -1,0 +1,5 @@
+# Panamericana Abarrotera (PASA)
+User-agent: *
+Allow: /
+
+Sitemap: https://pasa.com.mx/sitemap.xml

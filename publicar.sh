@@ -16,6 +16,7 @@ rm -rf "$STAGE"
 mkdir -p "$STAGE"
 cp -R assets *.html *.css *.js "$STAGE"/
 cp _headers "$STAGE"/ 2>/dev/null || true
+cp robots.txt sitemap.xml "$STAGE"/ 2>/dev/null || true
 
 # Documentos internos que NO deben publicarse
 rm -f "$STAGE"/cotizacion-*.html
