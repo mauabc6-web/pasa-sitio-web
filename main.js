@@ -139,6 +139,9 @@
     document.addEventListener('pointermove', (e) => {
       const card = e.target.closest && e.target.closest('.pgrid .pcard');
       if (!card) { reposar(); return; }
+      /* sobre los chips o el enlace, la tarjeta se queda quieta: si el botón
+         se mueve entre mousedown y mouseup el navegador no dispara el clic */
+      if (e.target.closest('.pc-sizes, .pc-go')) return;
       if (card !== activa) { reposar(); activa = card; }
 
       let glare = card.querySelector(':scope > .glare');
